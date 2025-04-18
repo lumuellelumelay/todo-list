@@ -1,0 +1,18 @@
+@import './root.css';
+@import './sidebar_menu.css';
+@import './todo_list_content.css';
+  
+.todo-list-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+    height: 100vh;
+
+    background-color: var(--background);
+}
+
+.sidebar-right {
+    background-color: pink;
+}

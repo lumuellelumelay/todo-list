@@ -1,0 +1,116 @@
+@import url('../fonts/web/inter.css');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root {
+    font-family: "Inter", sans-serif;
+
+    /* for sidebar menu */
+    --glass-background: rgba(240, 240, 240, 0.5);
+    --glass-border: 1px solid rgba(130, 130, 130, 0.5);
+    --glass-border-light: 1px solid rgba(100, 100, 100, 0.25);
+
+    --item-background: rgba(190, 190, 190, 0.15);
+    --item-border: 1px solid rgba(100, 100, 100, 0.25);
+    --item-border-light: 1px solid rgba(100, 100, 100, 0.25);
+
+    --item-background-hover: rgba(130, 130, 130, 0.15);
+
+    --circle-background: rgba(190, 190, 190, 0.25);
+    --circle-border: 1px solid rgba(190, 190, 190, 0.1);
+
+    --input-border: 1px solid #110b0c90;
+
+    /* general color assets */
+    --background: #fbf7f8;
+
+    --primary-color: #c93d5b;
+
+    --secondary-color: #ef8fa4;
+    --secondary-color-light: #f9d2db;
+
+    --accent-color: #f84168;
+    --accent-color-hover: #f96786;
+
+    --text-color: #110b0c;
+    --text-secondary-color: #585455;
+    --text-tertary-color: #888586;
+    --text-color-light: #fbf7f8;
+
+    --pending-color: #60935D; ;
+    --today-color: #E76F51;
+    --overdue-color: #E15554;
+
+    /* general size assets */
+    --logo-font-size: 1.44rem;
+    --menu-font-size: 0.833rem;
+
+    --add-task-size: 1.728rem; 
+
+    --project-title-font-size: 1.728rem;
+
+    --project-icon-size: 1.2rem;
+    --number-items-font-size: 0.694rem;
+
+    --large-font-size: 1.2rem;
+    --medium-font-size: 1rem;
+    --small-font-size: 0.833rem;
+    --x-small-font-size: 0.694rem;
+    --xx-small-font-size: 0.583rem;
+
+    /* colors for projects icons */
+    --white-choice: #F5F3F5;
+    --black-choice: #2A2D34;
+
+    --violet-choice: #694F5D;
+    /* --violet-choice: #8338EC; */
+    /* --violet-choice: #7768AE; */
+    /* --violet-choice: #9448BC; */
+
+    --pink-choice: #D282A6;
+    /* --pink-choice: #FF4D80; */
+    /* --pink-choice: #DF367C; */
+
+    --red-choice: #CE5374;
+    /* --red-choice: #d22c3c; */
+    /* --red-choice: #E15554; */
+
+    --brown-color: #615756;
+    /* --brown-color: #664E4C; */
+    /* --brown-color: #302B27; */
+    /* --brown-color: #6E4555; */
+
+    --yellow-choice: #FFC600;
+    /* --yellow-choice: #FFBE0B; */
+    /* --yellow-choice: #E1BC29; */
+
+    --blue-choice: #1E96FC;
+    /* --blue-choice: #568EA3; */
+    /* --blue-choice: #3A86FF; */
+
+    /* --light-blue-choice: #429EA6; */
+    /* --light-blue-choice: #68C3D4; */
+    /* --light-blue-choice: #4D9DE0 */
+
+    /* --green-choice: #539987; */
+    /* --green-choice: #60935D; */
+    /* --green-choice: #5C946E; */
+    /* --green-choice: #3BB273; */
+
+    /* --orange-choice: #E76F51; */
+    /* --orange-choice: #F4A261; */
+    /* --orange-choice: #8C271E; */
+}
+
+@supports (font-variation-settings: normal) {
+    :root { 
+      font-family: "InterVariable", sans-serif; 
+      font-optical-sizing: auto; 
+    }
+  }
