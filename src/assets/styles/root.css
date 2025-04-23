@@ -12,7 +12,7 @@
     font-family: "Inter", sans-serif;
 
     /* for sidebar menu */
-    --glass-background: rgba(240, 240, 240, 0.5);
+    --glass-background: rgba(245, 245, 245, 0.2);
     --glass-border: 1px solid rgba(130, 130, 130, 0.5);
     --glass-border-light: 1px solid rgba(100, 100, 100, 0.25);
 
@@ -58,11 +58,21 @@
     --project-icon-size: 1.2rem;
     --number-items-font-size: 0.694rem;
 
+    --close-button-size: 1.728rem;
+
     --large-font-size: 1.2rem;
     --medium-font-size: 1rem;
     --small-font-size: 0.833rem;
     --x-small-font-size: 0.694rem;
     --xx-small-font-size: 0.583rem;
+
+    /* color choices */
+    --default-choice: #c93d5b;
+    --red-choice: #DB2B39;
+    --green-choice: #497248;
+    --blue-choice: #576CA8;
+    --purple-choice: #5B2C91;
+    --yellow-choice: #BC6F37;
 
     /* colors for projects icons */
     --white-choice: #F5F3F5;

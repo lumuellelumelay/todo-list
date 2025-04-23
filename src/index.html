@@ -243,25 +243,55 @@
              </div>
         </section>
 
-        <dialog class="modal my-project-dialog" open>
-            <button class="close">x</button>
-            <form action="">
-                <div class="project-name-input">
-                    <label for="project-name">Project Name</label>
-                    <!-- can be change to name="project-name" -->
-                    <input type="text" id="project-name" name="projectName" placeholder="Grocery" required>
-                </div>
-                <div class="color-picker">
-                    <input type="radio" id="color" name="color" value="default" checked>
-                    <input type="radio" id="color" name="color" value="red">
-                    <input type="radio" id="color" name="color" value="green">
-                    <input type="radio" id="color" name="color" value="blue">
-                    <input type="radio" id="color" name="color" value="purple">
-                    <input type="radio" id="color" name="color" value="yellow">
-                </div>
-                <button type="submit">Create</button>
-            </form>
-        </dialog>
+        <div class="dialog-wrapper" data-is-active="false">
+            <dialog class="modal my-project-dialog">
+                <button class="close">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512">
+                        <path d="m12,0C5.383,0,0,5.383,0,12s5.383,12,12,12,12-5.383,12-12S18.617,0,12,0Zm4.707,15.293l-1.414,1.414-3.293-3.293-3.293,3.293-1.414-1.414,3.293-3.293-3.293-3.293,1.414-1.414,3.293,3.293,3.293-3.293,1.414,1.414-3.293,3.293,3.293,3.293Z"/>
+                    </svg>
+                </button>
+                <form class="my-project" action="">
+                    <div class="project-name-input">
+                        <p class="title">Create Project</p>
+                        <div class="input-container">
+                            <label for="project-name">Project Name</label>
+                            <!-- can be change to name="project-name" -->
+                            <input type="text" id="project-name" name="projectName" placeholder="Grocery" required>
+                        </div>
+                    </div>
+                    <div class="color-picker">
+                        <label for="color">What Color?</label>
+                        <div class="color-choices">
+                           <label class="custom-radio" data-color="default">
+                                <input type="radio" id="color" name="color" value="default" checked>
+                                <span class="checkmark"></span>
+                           </label>
+                            <label class="custom-radio" data-color="red">
+                                <input type="radio" id="color" name="color" value="red">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio" data-color="green">
+                                <input type="radio" id="color" name="color" value="green">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio" data-color="blue">
+                                <input type="radio" id="color" name="color" value="blue">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio" data-color="purple">
+                                <input type="radio" id="color" name="color" value="purple">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio" data-color="yellow">
+                                <input type="radio" id="color" name="color" value="yellow">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <button class="submit" type="submit">Create</button>
+                </form>
+            </dialog>
+        </div>
 
     </main>
 </body>

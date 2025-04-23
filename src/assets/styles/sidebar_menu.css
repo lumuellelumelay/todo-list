@@ -294,27 +294,27 @@
 }
 
 .project-cards-icon[data-color="default"] svg {
-    fill: var(--primary-color);
+    fill: var(--default-choice);
 }
 
 .project-cards-icon[data-color="red"] svg {
-    fill: #DB2B39;
+    fill: var(--red-choice);
 }
 
 .project-cards-icon[data-color="green"] svg {
-    fill: #497248;
+    fill: var(--green-choice);
 }
 
 .project-cards-icon[data-color="blue"] svg {
-    fill: #576CA8;
+    fill: var(--blue-choice);
 }
 
 .project-cards-icon[data-color="purple"] svg {
-    fill: #5b2c91;
+    fill: var(--purple-choice);
 }
 
 .project-cards-icon[data-color="yellow"] svg {
-    fill: #bc6f37;
+    fill: var(--yellow-choice);
 }
 
 .project-description {

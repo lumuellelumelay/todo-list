@@ -277,43 +277,43 @@
 
 .project-list p.project[data-color="default"] {
     background-color: var(--secondary-color-light); /* the background depends on the project's color */
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
+    color: var(--default-choice);
+    border: 1px solid var(--default-choice);
 }
 
 .project-list p.project[data-color="red"] {
     /*red-choice*/
     background-color: #E8B4BC;
-    color: #DB2B39;
-    border: 1px solid #DB2B39;
+    color: var(--red-choice);
+    border: 1px solid var(--red-choice);
 }
 
 .project-list p.project[data-color="green"] {
     /*green-choice*/
     background-color: #8bf5bd;
-    color: #497248;
-    border: 1px solid #497248;
+    color: var(--green-choice);
+    border: 1px solid var(--green-choice);
 }
 
 .project-list p.project[data-color="blue"] {
     /*blue-choice*/
     background-color: #8cdcfb;
-    color: #576CA8;
-    border: 1px solid #576CA8;
+    color: var(--blue-choice);
+    border: 1px solid var(--blue-choice);
 }
 
 .project-list p.project[data-color="purple"] {
     /*purple-choice*/
     background-color: #d6a3f0;
-    color: #5b2c91;
-    border: 1px solid #5b2c91;
+    color: var(--purple-choice);
+    border: 1px solid var(--purple-choice);
 }
 
 .project-list p.project[data-color="yellow"] {
     /*yellow-choice*/
     background-color: #fbdd92;
-    color: #bc6f37;
-    border: 1px solid #bc6f37;
+    color: var(--yellow-choice);
+    border: 1px solid var(--yellow-choice);
 }
 
 .list-menu-section {

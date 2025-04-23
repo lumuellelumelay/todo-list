@@ -1,6 +1,7 @@
 @import './root.css';
 @import './sidebar_menu.css';
 @import './todo_list_content.css';
+@import './projectOverlay.css';
   
 .todo-list-container {
     display: flex;
