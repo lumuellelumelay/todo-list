@@ -29,7 +29,7 @@
     display: none;
 }
 
-dialog.my-project-dialog {
+dialog.my-project-dialog{
     position: absolute;
 
     top: 50%;
@@ -58,7 +58,7 @@ dialog.my-project-dialog {
     box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.15);
 }
 
-button.close {
+dialog.my-project-dialog button.close {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,14 +76,14 @@ button.close {
     top: 0.8rem;
 }
 
-button.close svg {
+dialog.my-project-dialog button.close svg {
     width: var(--close-button-size);
     height: var(--close-button-size);
 
     fill: var(--accent-color);
 }
 
-button.close:hover svg {
+dialog.my-project-dialog button.close:hover svg {
     fill: var(--accent-color-hover);
 }
 
@@ -287,7 +287,13 @@ button.submit {
 
     border-radius: 0.3rem;
 
+    font-size: var(--small-font-size);
+    font-weight: 500;
+    
+    letter-spacing: 2%;
     color: var(--text-color-light);
+
+    cursor: pointer;
 
     padding: 0.8rem;
 }

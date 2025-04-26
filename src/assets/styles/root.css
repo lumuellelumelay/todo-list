@@ -24,6 +24,7 @@
 
     --circle-background: rgba(190, 190, 190, 0.25);
     --circle-border: 1px solid rgba(190, 190, 190, 0.1);
+    --circle-border-select: 1px solid rgba(124, 33, 52, 0.3);
 
     --input-border: 1px solid #110b0c90;
 
@@ -72,50 +73,11 @@
     --green-choice: #497248;
     --blue-choice: #576CA8;
     --purple-choice: #5B2C91;
-    --yellow-choice: #BC6F37;
+    --yellow-choice: #c1a12d;
 
     /* colors for projects icons */
     --white-choice: #F5F3F5;
     --black-choice: #2A2D34;
-
-    --violet-choice: #694F5D;
-    /* --violet-choice: #8338EC; */
-    /* --violet-choice: #7768AE; */
-    /* --violet-choice: #9448BC; */
-
-    --pink-choice: #D282A6;
-    /* --pink-choice: #FF4D80; */
-    /* --pink-choice: #DF367C; */
-
-    --red-choice: #CE5374;
-    /* --red-choice: #d22c3c; */
-    /* --red-choice: #E15554; */
-
-    --brown-color: #615756;
-    /* --brown-color: #664E4C; */
-    /* --brown-color: #302B27; */
-    /* --brown-color: #6E4555; */
-
-    --yellow-choice: #FFC600;
-    /* --yellow-choice: #FFBE0B; */
-    /* --yellow-choice: #E1BC29; */
-
-    --blue-choice: #1E96FC;
-    /* --blue-choice: #568EA3; */
-    /* --blue-choice: #3A86FF; */
-
-    /* --light-blue-choice: #429EA6; */
-    /* --light-blue-choice: #68C3D4; */
-    /* --light-blue-choice: #4D9DE0 */
-
-    /* --green-choice: #539987; */
-    /* --green-choice: #60935D; */
-    /* --green-choice: #5C946E; */
-    /* --green-choice: #3BB273; */
-
-    /* --orange-choice: #E76F51; */
-    /* --orange-choice: #F4A261; */
-    /* --orange-choice: #8C271E; */
 }
 
 @supports (font-variation-settings: normal) {

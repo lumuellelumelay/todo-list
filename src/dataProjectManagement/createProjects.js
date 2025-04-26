@@ -1,9 +1,11 @@
+// This is for creating projects. It handles the form data
+// and creates the project card.
+// The form data is handled with projectList.js
+// and retrieve the latest project from the projectList.js
 import { CreateCard } from '../assets/projectCardHandler/createCard.js';
-import { projectList } from './projectList.js';
+import projectListInstance from '../modules/projectManager.js';
 
-const projectListInstance = new projectList();
-
-export class addProjects {
+export class CreateProjects {
   constructor() {
     this.formValues = {};
     this.form = this.initialize();

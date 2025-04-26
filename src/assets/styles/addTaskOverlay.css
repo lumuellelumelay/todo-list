@@ -1,0 +1,6 @@
+form.my-task .top-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+

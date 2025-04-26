@@ -353,6 +353,14 @@
     
     padding: 0.1rem;
     margin-right: 0.5rem;
+
+    transition: all 0.1s ease;
+}
+
+.project-cards[data-is-active="true"] .project-description p.items {
+    background-color: var(--accent-color);
+    color: var(--text-color-light);
+    border: var(--circle-border-select);
 }
 
 .project-cards[data-is-active="false"]:hover {

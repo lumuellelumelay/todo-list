@@ -2,6 +2,7 @@
 @import './sidebar_menu.css';
 @import './todo_list_content.css';
 @import './projectOverlay.css';
+@import './addTaskOverlay.css';
   
 .todo-list-container {
     display: flex;

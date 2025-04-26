@@ -1,6 +1,6 @@
 import { Projects } from './project.js';
 
-export class projectList {
+export class ProjectHandler {
   constructor() {
     this.idProject = 1;
     this.projectList = [];

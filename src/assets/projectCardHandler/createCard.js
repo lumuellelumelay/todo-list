@@ -4,7 +4,7 @@ export class CreateCard {
     this.projectName = projectName;
     this.colorChoice = colorChoice;
     this.projectList = projectList;
-    this.projectCard = [];
+    this.projectCard = {};
     this.wrapper = this.initialize();
   }
 
@@ -77,6 +77,7 @@ export class CreateCard {
     this.checkingProjectListLength();
   }
 
+  // NOTE: this is where the project list length will be displayed
   checkingProjectListLength() {
     if (this.projectList.length > 0) {
       this.projectCard.items.textContent = `${this.projectList.length}`;

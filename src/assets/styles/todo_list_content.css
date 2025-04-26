@@ -228,11 +228,15 @@
 
     text-align: center;
 
-    gap: 0.3rem;
+    gap: 0.2rem;
 }
 
 .list-extra-description .date svg {
-    width: var(--x-small-font-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: var(--small-font-size);
     height: var(--x-small-font-size);
 }
 
@@ -265,7 +269,8 @@
     fill: var(--overdue-color);
 }
 
-.list-extra-description .project-list {
+.list-extra-description div.project-list {
+    margin-left: auto;
 }
 
 .project-list p.project {
@@ -311,7 +316,7 @@
 
 .project-list p.project[data-color="yellow"] {
     /*yellow-choice*/
-    background-color: #fbdd92;
+    background-color: #fcebbe;
     color: var(--yellow-choice);
     border: 1px solid var(--yellow-choice);
 }
