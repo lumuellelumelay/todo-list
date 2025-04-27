@@ -1,7 +1,6 @@
 .todo-list-content {
     background-color: var(--background);
 
-    height: 100vh;
     width: 100%;
     padding: 0.5rem;
 
@@ -11,11 +10,22 @@
 }
 
 .todo-list-wrapper {
-    height: 100vh;
-
     min-width: 280px;
     width: 100%;
     max-width: 768px;
+
+    position: relative;
+
+    transition: all 0.3s ease;
+}
+
+.todo-list-wrapper[data-is-menu-active="true"] {
+    /* left: calc(100% - 10rem); */
+    left: 8rem;
+}
+
+.todo-list-wrapper[data-is-menu-active="false"] {
+    left: 0rem;
 }
 
 .top-section-content {
@@ -129,10 +139,12 @@
 
 /* todo-list cards */
 .bottom-section-content {
+    padding-bottom: 2rem;
 }
 
 .todo-list-cards {
-
+    /* background-color: pink; */
+    /* padding: 1rem; */
 }
 
 .list-card {

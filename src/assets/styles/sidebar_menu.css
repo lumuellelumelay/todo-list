@@ -5,21 +5,43 @@
     -webkit-backdrop-filter: blur(6.5px);
     border-right: var(--glass-border); 
 
-    width: 20rem;
+    width: 18rem;
     height: 100vh;
     padding: 1rem;
+    /* padding: 1rem 0.5rem; */
 
     display: flex;
     flex-direction: column;
+    
+    position: fixed;
+    top: 0;
+
+    z-index: 2;
+
+    transition: all 0.3s ease;
+}
+
+.sidebar-menu[data-is-active="true"] {
+    left: 0;
+    width: 18rem;
+}
+
+/* change to false */
+.sidebar-menu[data-is-active="false"] {
+    width: 5rem;
+    padding: 1rem 0.5rem;
+    /* left: -15rem; */
 }
 
 .logo-container {
-    padding: 1rem;
+    padding: 0.6rem;
 
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+
+    position: relative;
 }
 
 .logo-container .logo {
@@ -28,6 +50,26 @@
     font-weight: 900;
     color: var(--text-color);
     letter-spacing: 2%;
+
+    overflow: hidden;
+    white-space: nowrap;
+
+    /* position: relative; */
+    margin-left: 3rem;
+
+    transition: all 0.3s ease;
+}
+
+.sidebar-menu[data-is-active="true"] .logo-container .logo {
+    /* left: 0rem; */
+    opacity: 1;
+    visibility: visible;
+}
+
+.sidebar-menu[data-is-active="false"] .logo-container .logo { /* change to false */
+    /* left: -15rem; */
+    opacity: 0;
+    visibility: hidden;
 }
 
 /* toggle sidebar menu */
@@ -43,7 +85,8 @@
 
     /* overflow: hidden; */
 
-    position: relative;
+    position: absolute;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -130,6 +173,34 @@
     border: 1px solid transparent;
 
     transition: all 0.1s ease;
+    /* position: absolute; */
+}
+
+.menu-list a span {
+    overflow: hidden;
+    white-space: nowrap;
+
+    /* opacity: 1;
+    visibility: visible; */
+
+    position: relative;
+
+    transition: all 0.3s ease;
+}
+
+.sidebar-menu[data-is-active="true"] .menu-list a span {
+    visibility: visible;
+    opacity: 1;
+
+    left: 0rem;
+}
+
+/* change to false */
+.sidebar-menu[data-is-active="false"] .menu-list a span {
+    visibility: hidden;
+    opacity: 0;
+
+    /* left: -5rem; */
 }
   
 .menu-list a:hover[data-is-active="false"] {
@@ -144,11 +215,27 @@
     border: 1px solid transparent;
 }
 
+/* testing */
+/* change to false */
+.sidebar-menu[data-is-active="false"] .menu-list li a {
+    padding: 0.8rem;
+}
+
 .menu-list li a > div svg {
     width: var(--medium-font-size);
     height: var(--medium-font-size);
 
     fill: var(--text-color);
+
+    /* position: absolute; */
+
+    transition: all 0.2s ease;
+}
+
+/* change to false*/
+.sidebar-menu[data-is-active="false"] .menu-list li a > div svg {
+    width: var(--large-font-size);
+    height: var(--large-font-size);
 }
 
 .menu-list li a > div[data-icon-type="solid"] svg,
@@ -180,13 +267,33 @@
 }
   
 .top-add-project-section {
-    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 .top-add-project-section p.title {
     font-size: var(--medium-font-size);
     font-weight: 500;
     color: var(--text-color);
+
+    white-space: nowrap;
+    overflow: hidden;
+
+    opacity: 1;
+    visibility: visible;
+
+    position: relative;
+
+    transition: all 0.3s ease;
+}
+
+.sidebar-menu[data-is-active="true"] .top-add-project-section p.title {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sidebar-menu[data-is-active="false"] .top-add-project-section p.title {
+    opacity: 0;
+    visibility: hidden;
 }
   
 .add-button {
@@ -204,12 +311,23 @@
 
     color: var(--text-color-light);
 
-    transition: background-color 0.2s ease;
+    transition: all 0.2s ease;
     cursor: pointer;
+
+    white-space: nowrap;
 }
 
 .add-button:hover {
     background-color: var(--accent-color-hover);
+}
+
+.sidebar-menu[data-is-active="false"] .add-button span {
+    overflow: hidden;
+    display: none;
+}
+
+.sidebar-menu[data-is-active="false"] .add-button p {
+    font-size: var(--medium-font-size);
 }
   
 .bottom-add-project-section.projects-container {
@@ -257,6 +375,18 @@
 
     border-bottom-left-radius: 0.3rem;
     border-bottom-right-radius: 0.3rem;
+}
+
+.sidebar-menu[data-is-active="true"] .bottom-add-project-section.projects-container {
+    visibility: visible;
+    opacity: 1;
+
+    transition: all 0.3s ease;
+ }
+
+.sidebar-menu[data-is-active="false"] .bottom-add-project-section.projects-container {
+   visibility: hidden;
+   opacity: 0;
 }
   
 .project-cards {

@@ -10,9 +10,19 @@
     align-items: center;
     justify-content: space-between;
     
-    height: 100vh;
+    /* height: 100vh; */
 
     background-color: var(--background);
+
+    overflow: hidden;
+}
+
+body[data-dialog-active="true"] {
+    overflow: hidden;
+}
+
+body[data-dialog-active="false"] {
+    overflow: auto;
 }
 
 .sidebar-right {

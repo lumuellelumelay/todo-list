@@ -12,9 +12,11 @@ import { changeDialogState } from './assets/controls/projectOverlayController.js
 
 // NOTE:for testing create card list
 import { CreateCard } from './assets/listCardHandler/createCard.js';
+import { toggleMenu } from './assets/controls/toggleController.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   changeDialogState();
+  toggleMenu();
 
   new MenuController(document.querySelector('.menu-list'));
 
@@ -44,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'Hello World! This is a test for the todo list card!',
     null,
     null,
-    'yellow',
+    'red',
     'Web Designing'
   );
 
@@ -70,11 +72,11 @@ document.addEventListener('DOMContentLoaded', () => {
     null,
     'overdue',
     'Monday',
-    'yellow',
+    'blue',
     'Web Designing'
   );
 
-  // noDescriptionTest.render();
+  noDescriptionTest.render();
 
   const noEverythingTest = new CreateCard(
     '6',
@@ -88,4 +90,17 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   noEverythingTest.render();
+
+  const anotherDefaultTest = new CreateCard(
+    '7',
+    '1',
+    'anotherDefaultTest',
+    'Hello World! This is a test for the todo list card!',
+    'pending',
+    'Monday',
+    'green',
+    'Web Designing'
+  );
+
+  anotherDefaultTest.render();
 });
