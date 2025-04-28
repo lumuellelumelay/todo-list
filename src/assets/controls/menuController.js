@@ -1,7 +1,9 @@
 // this code controls the menu items styles [and possibly the backend logic]
+import { renderPageHandler } from '../../modules/renderPageHandler.js';
 export class MenuController {
   constructor(menuList) {
     this.menuList = menuList;
+    // this.activeMenu = null;
     this.menu = [];
     this.initialize();
   }
@@ -9,11 +11,21 @@ export class MenuController {
   initialize() {
     const list = this.menuList.querySelectorAll('li');
     this.menu = list;
-    this.styleControls();
+    this.menuControls();
+  }
+
+  // this will render the menu pages and its contents
+  renderHelper(activeMenu) {
+    if (!activeMenu) {
+      console.error('no active menu');
+      return;
+    }
+
+    renderPageHandler(activeMenu);
   }
 
   // this instance controls the menu items styles
-  styleControls() {
+  menuControls() {
     this.menu.forEach((menuItem) => {
       menuItem.addEventListener('click', (e) => {
         e.preventDefault();
@@ -27,6 +39,8 @@ export class MenuController {
           target.querySelector('div').dataset.iconType = 'solid';
 
           this.activeHandler(target);
+
+          this.renderHelper(target.querySelector('a').dataset.name);
         }
       });
     });

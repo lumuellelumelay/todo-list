@@ -17,6 +17,11 @@ export class DateHandler {
   }
 
   getCreateDate() {
-    return this.dateToday;
+    return this.dateToday.toLocaleDateString();
+  }
+
+  getTodayDay() {
+    const dayNumber = this.dateToday.getDay();
+    return this.getDay(dayNumber);
   }
 }
