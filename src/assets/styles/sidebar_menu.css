@@ -459,6 +459,9 @@
     font-size: var(--menu-font-size);
     font-weight: 400;
     color: var(--text-color);
+
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .project-description p.items {

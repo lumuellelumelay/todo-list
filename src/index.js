@@ -14,7 +14,44 @@ import { changeDialogState } from './assets/controls/projectOverlayController.js
 import { CreateCard } from './assets/listCardHandler/createCard.js';
 import { toggleMenu } from './assets/controls/toggleController.js';
 
+const textareaAdjustHeight = () => {
+  const parentContainer = document.querySelector('.my-task');
+  const textarea = parentContainer.querySelector('#description');
+
+  function adjustHeight() {
+    textarea.style.height = 'auto';
+
+    const scrollHeight = textarea.scrollHeight;
+    const maxHeight = 16;
+
+    const maxHeightPixels = maxHeight * 16;
+
+    if (scrollHeight > maxHeightPixels) {
+      textarea.style.height = `${maxHeightPixels}px`;
+      textarea.style.overflowY = 'auto';
+    } else {
+      textarea.style.height = `${scrollHeight}px`;
+      textarea.style.overflowY = 'hidden';
+    }
+  }
+
+  textarea.addEventListener('input', adjustHeight);
+
+  setTimeout(adjustHeight, 0);
+
+  Array.from(document.querySelectorAll('.dialog-wrapper'))
+    .filter((item) => item.dataset.nameDialog === 'my-task-dialog')
+    .forEach((item) => {
+      if (item.dataset.isActive === 'true') {
+        setTimeout(adjustHeight, 0);
+      }
+    });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
+  // for textarea
+  textareaAdjustHeight();
+
   changeDialogState();
   toggleMenu();
 

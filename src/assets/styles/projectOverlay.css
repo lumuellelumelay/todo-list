@@ -57,7 +57,7 @@ dialog.my-project-dialog{
     flex-direction: column;
 
 
-    box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.10);
 }
 
 dialog.my-project-dialog button.close {
@@ -156,6 +156,7 @@ form.my-project {
 
 .input-container input:focus {
     outline: none;
+    border: 1px solid var(--secondary-color);
 }
 
 .color-picker {

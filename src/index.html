@@ -194,56 +194,16 @@
                                         </div>
                                     </div>
                                 </div>
+                            <!-- input -->
                          </div>
 
-                         <div class="list-card" data-is-checked="false" data-id-list="2" draggable="true">
-                            <input type="checkbox" class="checkbox" data-id-list="2" data-is-checked="false">
-                                <div class="list-content">
-                                    <div class="list-description">
-                                        <div class="list-left-section">
-                                            <p class="title"> Task 1 </p>
-                                            <p class="description"> This is a task description </p>
-                                        </div>
-                                        <div class="list-extra-description">
-                                            <div class="date" data-date="pending">
-                                                <svg xmlns="http://www.w3.org/2000/svg" id="line-calendar" data-icon-type="line" viewBox="0 0 24 24" width="512" height="512">
-                                                    <path d="M19,2H18V1a1,1,0,0,0-2,0V2H8V1A1,1,0,0,0,6,1V2H5A5.006,5.006,0,0,0,0,7V19a5.006,5.006,0,0,0,5,5H19a5.006,5.006,0,0,0,5-5V7A5.006,5.006,0,0,0,19,2ZM2,7A3,3,0,0,1,5,4H19a3,3,0,0,1,3,3V8H2ZM19,22H5a3,3,0,0,1-3-3V10H22v9A3,3,0,0,1,19,22Z"></path>
-                                                </svg>
-                                                <p class="due-date" data-id-list="2">Monday</p>
-                                            </div>
-                                            <div class="project-list">
-                                                <p class="project" data-color="purple" data-project-id="1"> Web Development </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="list-menu-section">
-                                        <div class="list-menu-wrapper">
-                                            <div class="edit" data-memu="edit">
-                                                <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512">
-                                                    <path d="M18.656.93,6.464,13.122A4.966,4.966,0,0,0,5,16.657V18a1,1,0,0,0,1,1H7.343a4.966,4.966,0,0,0,3.535-1.464L23.07,5.344a3.125,3.125,0,0,0,0-4.414A3.194,3.194,0,0,0,18.656.93Zm3,3L9.464,16.122A3.02,3.02,0,0,1,7.343,17H7v-.343a3.02,3.02,0,0,1,.878-2.121L20.07,2.344a1.148,1.148,0,0,1,1.586,0A1.123,1.123,0,0,1,21.656,3.93Z"/>
-                                                    <path d="M23,8.979a1,1,0,0,0-1,1V15H18a3,3,0,0,0-3,3v4H5a3,3,0,0,1-3-3V5A3,3,0,0,1,5,2h9.042a1,1,0,0,0,0-2H5A5.006,5.006,0,0,0,0,5V19a5.006,5.006,0,0,0,5,5H16.343a4.968,4.968,0,0,0,3.536-1.464l2.656-2.658A4.968,4.968,0,0,0,24,16.343V9.979A1,1,0,0,0,23,8.979ZM18.465,21.122a2.975,2.975,0,0,1-1.465.8V18a1,1,0,0,1,1-1h3.925a3.016,3.016,0,0,1-.8,1.464Z"/>
-                                                </svg>
-                                            </div>
-                                            <div class="delete" data-menu="delete">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="512" height="512">
-                                                    <g id="_01_align_center" data-name="01r">
-                                                        <path d="M22,4H17V2a2,2,0,0,0-2-2H9A2,2,0,0,0,7,2V4H2V6H4V21a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V6h2ZM9,2h6V4H9Zm9,19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V6H18Z"/>
-                                                        <rect x="9" y="10" width="2" height="8"/>
-                                                        <rect x="13" y="10" width="2" height="8"/>
-                                                    </g>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                         </div>
                     </div>
                 </div>
 
              </div>
         </section>
 
-        <div class="dialog-wrapper" data-is-active="false">
+        <div class="dialog-wrapper" data-is-active="false" data-name-dialog="my-project-dialog">
             <dialog class="modal my-project-dialog">
                 <button class="close">
                     <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512">
@@ -293,22 +253,28 @@
             </dialog>
         </div>
 
-        <dialog class="modal my-add-task-dialog">
-            <form action="" class="my-task">
-                <div class="top-section">
-                    <input type="text" id="title" name="title" placeholder="Task Title" required>
-                    <textarea id="description" name="description" placeholder="Task Description"></textarea>
-                </div>
-                <div class="bottom-section">
-                    <select name="project" id="projectList"></select>
-                    <input type="date" name="due-date" id="due-date">
-                </div>
-                <div class="buttons">
-                    <button class="cancel" type="button">Cancel</button>
-                    <button class="submit" type="submit">Create</button>
-                </div>
-            </form>
-        </dialog>
+        <div class="dialog-wrapper" data-is-active="false" data-name-dialog="my-add-task-dialog">
+            <dialog class="modal my-add-task-dialog">
+                <form action="" class="my-task">
+                    <div class="forms-user">
+                        <div class="top-section">
+                            <input type="text" id="title" name="title" placeholder="Task Title..." maxlength="30" required>
+                            <textarea id="description" name="description" placeholder="Task Description..." maxlength="600"></textarea>
+                        </div>
+                        <div class="bottom-section">
+                            <select name="project" id="projectList">
+                                <option value="" disabled selected>Select a Project</option>
+                            </select>
+                            <input type="date" name="due-date" id="due-date">
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button class="cancel" type="button">Cancel</button>
+                        <button class="submit" type="submit">Create</button>
+                    </div>
+                </form>
+            </dialog> 
+        </div>
 
     </main>
 </body>

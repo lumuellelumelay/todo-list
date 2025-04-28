@@ -1,6 +1,210 @@
+dialog.my-add-task-dialog {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+    max-width: 600px;
+
+    margin: 0 auto;
+    padding: 0.8rem;
+
+    background-color: var(--glass-background);
+    border: var(--glass-border);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+
+    border-radius: calc((0.8rem + 0.5rem) / 2);
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.10);
+}
+
+.my-add-task-dialog form.my-task {
+    padding: 0.5rem;
+    
+    border: var(--item-border);
+    border-radius: 0.5rem;
+
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    
+}
+
 form.my-task .top-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
+.forms-user .top-section {
+    padding: 0.3rem;
+    
+    display: flex;
+    flex-direction: row;
+
+    gap: 0.5rem;
+}
+
+.forms-user .top-section input {
+    padding: 0.5rem;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-bottom: var(--item-border);
+
+    font-family: 'Inter', sans-serif;
+    font-size: var(--large-font-size);
+    font-weight: 500;
+
+    transition: all 0.2s ease;
+}
+
+.forms-user .top-section input::placeholder {
+    font-weight: 500;
+    font-size: var(--large-font-size);
+    color: var(--text-secondary-color);
+    opacity: 0.5;
+}
+
+.forms-user .top-section input:focus {
+    outline: none;
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+.forms-user .top-section textarea {
+    padding: 0.5rem;
+    
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    border: var(--item-border);
+    border-radius: 2px;
+
+    resize: none;
+
+    font-family: 'Inter', sans-serif;
+    font-size: var(--small-font-size);
+    font-weight: 400;
+    line-height: 1.8;
+
+    min-height: 6rem;
+    height: auto;
+    max-height: 20rem;
+
+    overflow: hidden;
+
+    transition: all 0.2s ease;
+}
+
+.forms-user .top-section textarea::placeholder {
+    font-weight: 400;
+    font-size: var(--small-font-size);
+    color: var(--text-secondary-color);
+    opacity: 0.5;
+}
+
+.forms-user .top-section textarea:focus {
+    border: 1px solid var(--secondary-color);
+    overflow: hidden;
+    outline: none;
+}
+
+.forms-user .bottom-section {
+    padding: 0.3rem;
+    display: flex;
+
+    gap: 1rem;
+}
+
+.forms-user .bottom-section select {
+    border: var(--item-border);
+    border-radius: 4px;
+
+    padding: 0.3rem;
+
+    font-family: 'Inter', sans-serif;
+    font-size: var(--x-small-font-size);
+    font-weight: 400;
+
+    width: 8rem;
+
+    transition: all 0.2s ease;
+}
+
+.forms-user .bottom-section select:focus {
+    outline: none;
+    border: 1px solid var(--secondary-color);
+}
+
+.forms-user .bottom-section input {
+    border: var(--item-border);
+    border-radius: 4px;
+
+    padding: 0.3rem;
+
+    font-family: 'Inter', sans-serif;
+    font-size: var(--x-small-font-size);
+    color: #000;
+    font-weight: 400;
+
+    width: 8rem;
+
+    transition: all 0.2s ease;
+}
+
+.forms-user .bottom-section input:focus {
+    outline: none;
+    border: 1px solid var(--secondary-color);
+}
+
+form.my-task .buttons {
+    padding: 0.3rem;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 1rem;
+}
+
+.buttons button.submit, .buttons button.cancel {
+    margin: 0;
+    padding: 0.8rem;
+
+    width: 6rem;
+
+    border-radius: 0.3rem;
+    border: none;
+}
+
+.buttons button.cancel {
+    border: var(--glass-border);
+    background-color: var(--item-background);
+
+    font-size: var(--small-font-size);
+    font-weight: 500;
+    
+    letter-spacing: 2%;
+    color: var(--text-secondary-color);
+
+    cursor: pointer;
+}
+
+.buttons button.cancel:hover {
+    background-color: var(--item-background-hover);
+}

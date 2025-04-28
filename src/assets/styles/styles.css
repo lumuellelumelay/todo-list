@@ -17,6 +17,10 @@
     overflow: hidden;
 }
 
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
 body[data-dialog-active="true"] {
     overflow: hidden;
 }
