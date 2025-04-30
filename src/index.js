@@ -10,10 +10,11 @@ import { CreateProjects } from './dataProjectManagement/createProjects.js';
 // this is for the project overlay (dialog)
 import { changeDialogState } from './assets/controls/projectOverlayController.js';
 
-// NOTE:for testing create card list
-import { CreateCard } from './assets/listCardHandler/createCard.js';
+// for sidebar toggle button
 import { toggleMenu } from './assets/controls/toggleController.js';
 
+// NOTE:for testing create card list
+import { CreateCard } from './assets/listCardHandler/createCard.js';
 const textareaAdjustHeight = () => {
   const parentContainer = document.querySelector('.my-task');
   const textarea = parentContainer.querySelector('#description');
@@ -140,4 +141,43 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   anotherDefaultTest.render();
+
+  const anotherDefaultTest2 = new CreateCard(
+    '8',
+    '1',
+    'anotherDefaultTest2',
+    'Hello World! This is a test for the todo list card!',
+    'pending',
+    'Monday',
+    'green',
+    'Web Designing'
+  );
+
+  anotherDefaultTest2.render();
+
+  const anotherDefaultTest3 = new CreateCard(
+    '9',
+    '1',
+    'anotherDefaultTest3',
+    'Hello World! This is a test for the todo list card!',
+    'pending',
+    'Monday',
+    'green',
+    'Web Designing'
+  );
+
+  anotherDefaultTest3.render();
+
+  const anotherDefaultTest4 = new CreateCard(
+    '10',
+    '1',
+    'anotherDefaultTest4',
+    'Hello World! This is a test for the todo list card!',
+    'pending',
+    'Monday',
+    'green',
+    'Web Designing'
+  );
+
+  anotherDefaultTest4.render();
 });

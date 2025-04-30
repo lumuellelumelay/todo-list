@@ -43,7 +43,7 @@ dialog.my-project-dialog{
     max-width: 600px;
     /* height: 80vh; */
 
-    margin: 0 auto;
+    /* margin: 0 auto; */
     padding: 1rem;
 
     background-color: var(--glass-background);

@@ -5,6 +5,8 @@
 import { CreateCard } from '../assets/projectCardHandler/createCard.js';
 import projectListInstance from '../modules/projectManager.js';
 
+import optionHandler from '../modules/optionManager.js';
+
 export class CreateProjects {
   constructor() {
     this.formValues = {};
@@ -59,5 +61,9 @@ export class CreateProjects {
     const cardInstance = new CreateCard(id, title, color, list);
 
     cardInstance.renderCard();
+
+    // NOTE: add OptionHandler here
+    // NOTE: testing
+    optionHandler.updateOption();
   }
 }

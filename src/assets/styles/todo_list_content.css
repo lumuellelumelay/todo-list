@@ -6,7 +6,10 @@
 
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
+
+    overflow-y: auto;
+    height: 100vh;
 }
 
 .todo-list-wrapper {
