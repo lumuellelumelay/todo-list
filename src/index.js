@@ -13,8 +13,10 @@ import { changeDialogState } from './assets/controls/projectOverlayController.js
 // for sidebar toggle button
 import { toggleMenu } from './assets/controls/toggleController.js';
 
-// NOTE:for testing create card list
-import { CreateCard } from './assets/listCardHandler/createCard.js';
+// for testing
+import { CreateList } from './dataListManagement/createList.js';
+import dateHandler from './modules/dateManager.js';
+
 const textareaAdjustHeight = () => {
   const parentContainer = document.querySelector('.my-task');
   const textarea = parentContainer.querySelector('#description');
@@ -54,130 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
   textareaAdjustHeight();
 
   changeDialogState();
+
   toggleMenu();
 
   new MenuController(document.querySelector('.menu-list'));
-
   new ProjectController();
 
   new CreateProjects();
+  new CreateList();
 
-  // Note: delete this after testing
-  // testing for the list card creation
-  const defaultTest = new CreateCard(
-    '2',
-    '1',
-    'defaultTest',
-    'Hello World! This is a test for the todo list card!',
-    'overdue',
-    'Monday',
-    'yellow',
-    'Web Designing'
-  );
-
-  defaultTest.render();
-
-  const noDueDateTest = new CreateCard(
-    '3',
-    '1',
-    'noDueDateTest',
-    'Hello World! This is a test for the todo list card!',
-    null,
-    null,
-    'red',
-    'Web Designing'
-  );
-
-  noDueDateTest.render();
-
-  const noProjectTest = new CreateCard(
-    '4',
-    '1',
-    'noProjectTest',
-    'Hello World! This is a test for the todo list card!',
-    'overdue',
-    'Monday',
-    null,
-    null
-  );
-
-  noProjectTest.render();
-
-  const noDescriptionTest = new CreateCard(
-    '5',
-    '1',
-    'noDescriptionTest',
-    null,
-    'overdue',
-    'Monday',
-    'blue',
-    'Web Designing'
-  );
-
-  noDescriptionTest.render();
-
-  const noEverythingTest = new CreateCard(
-    '6',
-    '1',
-    'noEverythingTest',
-    null,
-    null,
-    null,
-    'yellow',
-    null
-  );
-
-  noEverythingTest.render();
-
-  const anotherDefaultTest = new CreateCard(
-    '7',
-    '1',
-    'anotherDefaultTest',
-    'Hello World! This is a test for the todo list card!',
-    'pending',
-    'Monday',
-    'green',
-    'Web Designing'
-  );
-
-  anotherDefaultTest.render();
-
-  const anotherDefaultTest2 = new CreateCard(
-    '8',
-    '1',
-    'anotherDefaultTest2',
-    'Hello World! This is a test for the todo list card!',
-    'pending',
-    'Monday',
-    'green',
-    'Web Designing'
-  );
-
-  anotherDefaultTest2.render();
-
-  const anotherDefaultTest3 = new CreateCard(
-    '9',
-    '1',
-    'anotherDefaultTest3',
-    'Hello World! This is a test for the todo list card!',
-    'pending',
-    'Monday',
-    'green',
-    'Web Designing'
-  );
-
-  anotherDefaultTest3.render();
-
-  const anotherDefaultTest4 = new CreateCard(
-    '10',
-    '1',
-    'anotherDefaultTest4',
-    'Hello World! This is a test for the todo list card!',
-    'pending',
-    'Monday',
-    'green',
-    'Web Designing'
-  );
-
-  anotherDefaultTest4.render();
+  dateHandler.updateListStatus();
 });

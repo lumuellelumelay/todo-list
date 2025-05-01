@@ -98,7 +98,7 @@
 
                 <div class="bottom-add-project-section projects-container" id="projects-container">
                     <!-- items -->
-                     <div class="project-cards" data-project-id="0" data-is-active="false">
+                     <!-- <div class="project-cards" data-project-id="0" data-is-active="false">
                         <div class="project-cards-icon" data-color="default">
                             <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px">
                                 <path d="m239-160 40-159H120l15-60h159l51-202H186l15-60h159l39-159h59l-39 159h203l39-159h59l-39 159h159l-15 60H666l-51 202h159l-15 60H600l-40 159h-59l40-159H338l-40 159h-59Zm114-219h203l51-202H404l-51 202Z"/>
@@ -119,7 +119,7 @@
                             <p class="project-title" data-name="Web Development"> Web Designing </p>
                             <p class="items" data-list-id="2"> 5 </p>
                         </div>
-                     </div>
+                     </div> -->
                 </div>
 
             </div>
@@ -154,7 +154,7 @@
                 <div class="bottom-section-content">
                     <div class="todo-list-cards todo-list-card-container"> <!-- this will render the list items -->
                         <!-- list items -->
-                         <div class="list-card" data-is-checked="false" data-project-id="1" data-id-list="1" draggable="true">
+                         <!-- <div class="list-card" data-is-checked="false" data-project-id="1" data-id-list="1" draggable="true">
                             <input type="checkbox" class="checkbox" data-id-list="1" data-is-checked="false">
                                 <div class="list-content">
                                     <div class="list-description">
@@ -163,7 +163,7 @@
                                             <p class="description"> This is a task description </p>
                                         </div>
                                         <div class="list-extra-description">
-                                            <div class="date" data-date="today">
+                                            <div class="date" data-date="pending">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="512" height="512">
                                                     <path d="M19,2H18V1a1,1,0,0,0-2,0V2H8V1A1,1,0,0,0,6,1V2H5A5.006,5.006,0,0,0,0,7V19a5.006,5.006,0,0,0,5,5H19a5.006,5.006,0,0,0,5-5V7A5.006,5.006,0,0,0,19,2ZM2,7A3,3,0,0,1,5,4H19a3,3,0,0,1,3,3V8H2ZM19,22H5a3,3,0,0,1-3-3V10H22v9A3,3,0,0,1,19,22Z"></path>
                                                 </svg>
@@ -194,8 +194,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            <!-- input -->
-                         </div>
+                         </div> -->
 
                     </div>
                 </div>
@@ -216,7 +215,7 @@
                         <div class="input-container">
                             <label for="project-name">Project Name</label>
                             <!-- can be change to name="project-name" -->
-                            <input type="text" id="project-name" name="projectName" placeholder="Grocery" required>
+                            <input type="text" id="project-name" name="projectName" placeholder="Grocery" required minlength="1" maxlength="30">
                         </div>
                     </div>
                     <div class="color-picker">
@@ -258,12 +257,12 @@
                 <form action="" class="my-task">
                     <div class="forms-user">
                         <div class="top-section">
-                            <input type="text" id="title" name="title" placeholder="Task Title..." maxlength="30" required>
+                            <input type="text" id="title" name="title" placeholder="Task Title..." minlength="1" maxlength="30" required>
                             <textarea id="description" name="description" placeholder="Task Description..." maxlength="600"></textarea>
                         </div>
                         <div class="bottom-section">
                             <select name="project" id="projectList">
-                                <option value="" disabled selected>Select a Project</option>
+                                <option value="none" disabled selected>Select a Project</option>
                             </select>
                             <input type="date" name="due-date" id="due-date">
                         </div>

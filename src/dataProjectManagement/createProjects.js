@@ -31,13 +31,19 @@ export class CreateProjects {
     const formData = new FormData(this.form);
     const formValues = Object.fromEntries(formData.entries()); // form values will be example: {projectName: 'example', color: default}
 
-    this.formValues = formValues;
+    this.formValues = this.checkWhiteSpaces(formValues);
 
     this.postFormValues();
   }
 
   getFormValues() {
     return this.formValues;
+  }
+
+  checkWhiteSpaces(formValues) {
+    const projectName = formValues.projectName;
+    formValues.projectName = projectName.trim();
+    return formValues;
   }
 
   postFormValues() {
@@ -48,11 +54,24 @@ export class CreateProjects {
 
     this.createProjectCard();
 
+    this.closeOverlay();
+
     this.resetFormValues();
+  }
+
+  closeOverlay() {
+    const overlayWrapper = Array.from(
+      document.querySelectorAll('.dialog-wrapper')
+    ).filter((item) => item.dataset.nameDialog === 'my-project-dialog');
+
+    overlayWrapper[0].dataset.isActive = 'false';
+    document.body.dataset.dialogActive = 'false';
   }
 
   resetFormValues() {
     this.formValues = {};
+    document.querySelector('#project-name').value = '';
+    document.querySelector('input[value="default"]').checked = true;
   }
 
   createProjectCard() {

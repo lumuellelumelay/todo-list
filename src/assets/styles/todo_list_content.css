@@ -28,7 +28,8 @@
 }
 
 .todo-list-wrapper[data-is-menu-active="false"] {
-    left: 0rem;
+    /* left: 0rem; */
+    left: 2rem;
 }
 
 .top-section-content {

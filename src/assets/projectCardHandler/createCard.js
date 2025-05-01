@@ -72,9 +72,18 @@ export class CreateCard {
   }
 
   showValues() {
-    this.projectCard.projectTitle.textContent = `${this.projectName}`;
+    this.projectCard.projectTitle.textContent = this.textProjectHelper();
 
     this.checkingProjectListLength();
+  }
+
+  textProjectHelper() {
+    if (this.projectName.length > 15) {
+      const titleLen = 15;
+      return `${this.projectName.slice(0, titleLen)}...`;
+    } else {
+      return `${this.projectName}`;
+    }
   }
 
   // NOTE: this is where the project list length will be displayed

@@ -1,6 +1,7 @@
-import projectListInstance from '../dataProjectManagement/projectHandler.js';
+import projectListInstance from '../modules/projectManager.js';
+import { List } from './list.js';
 
-class CreateList {
+export class ListHandler {
   constructor() {
     this.id = 1;
   }
