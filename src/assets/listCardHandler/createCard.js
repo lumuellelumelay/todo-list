@@ -6,7 +6,7 @@
 export class CreateCard {
   constructor(
     projectId,
-    listId,
+    idList,
     title,
     description,
     status,
@@ -15,7 +15,7 @@ export class CreateCard {
     projectName
   ) {
     this.projectId = projectId;
-    this.idList = listId;
+    this.idList = idList;
     this.title = title;
     this.description = description;
     this.status = status;
@@ -94,7 +94,6 @@ export class CreateCard {
   }
 
   setAttributes() {
-    console.log(this.card);
     this.listCardAttributes();
 
     this.checkboxAttribute();

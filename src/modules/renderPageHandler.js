@@ -5,12 +5,14 @@
 // 3. Render the menu
 // This file will serve as a render page handler
 
-import menuOptionHandler from '../modules/menuOptionHandler.js';
+import menuOptionHandler from '../render/menuRenderHandler.js';
 
-const menu = ['Today', 'Upcoming', 'Completed', 'Overdue'];
-const [todayHandler, upcomingHandler, overdueHandler] = menuOptionHandler;
+const menu = ['Today', 'Pending', 'Inbox', 'Overdue'];
+const [todayHandler, upcomingHandler, overdueHandler, inboxHandler] =
+  menuOptionHandler;
 
 // this will render the menu title or project name
+// CHECK: import in memuController
 export const renderPageHandler = (menuTitle) => {
   const parentTitleWrapper = document.querySelector('.top-section-wrapper');
   const titlePage = parentTitleWrapper.querySelector('.project-title');
@@ -18,6 +20,10 @@ export const renderPageHandler = (menuTitle) => {
   if (menu.includes(menuTitle)) {
     titlePage.textContent = menuTitle;
     titlePage.dataset.name = menuTitle;
+
+    if (menuTitle === 'Pending') {
+      titlePage.textContent = 'Upcoming';
+    }
     menuContentsRender(menuTitle);
   }
 };
@@ -26,20 +32,18 @@ const menuContentsRender = (menuTitle) => {
   // for rendering the menu contents
   switch (menuTitle) {
     case 'Today':
-      todayHandler();
+      todayHandler('today');
       break;
-    case 'Upcoming':
-      upcomingHandler();
+    case 'Pending':
+      upcomingHandler('pending');
       break;
-    case 'Completed':
-      // render the completed page
-      console.log('Completed');
+    case 'Inbox':
+      inboxHandler('inbox');
       break;
     case 'Overdue':
-      overdueHandler();
+      overdueHandler('overdue');
       break;
     default:
-      // render the today page
       console.error('no menu title');
   }
 };

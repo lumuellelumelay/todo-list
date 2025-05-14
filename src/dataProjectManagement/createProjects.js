@@ -12,6 +12,7 @@ export class CreateProjects {
     this.formValues = {};
     this.form = this.initialize();
     this.setupEventListeners();
+    this.loadOption();
   }
 
   initialize() {
@@ -83,6 +84,10 @@ export class CreateProjects {
 
     // NOTE: add OptionHandler here
     // NOTE: testing
+    optionHandler.updateOption();
+  }
+
+  loadOption() {
     optionHandler.updateOption();
   }
 }

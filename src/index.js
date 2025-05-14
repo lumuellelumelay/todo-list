@@ -7,6 +7,9 @@ import { ProjectController } from './assets/controls/projectController.js';
 // this is for creating projects
 import { CreateProjects } from './dataProjectManagement/createProjects.js';
 
+// this is for creating lists
+import { CreateList } from './dataListManagement/createList.js';
+
 // this is for the project overlay (dialog)
 import { changeDialogState } from './assets/controls/projectOverlayController.js';
 
@@ -14,7 +17,6 @@ import { changeDialogState } from './assets/controls/projectOverlayController.js
 import { toggleMenu } from './assets/controls/toggleController.js';
 
 // for testing
-import { CreateList } from './dataListManagement/createList.js';
 import dateHandler from './modules/dateManager.js';
 
 const textareaAdjustHeight = () => {

@@ -1,5 +1,6 @@
 // this code controls the menu items styles [and possibly the backend logic]
 import { renderPageHandler } from '../../modules/renderPageHandler.js';
+
 export class MenuController {
   constructor(menuList) {
     this.menuList = menuList;
@@ -15,6 +16,7 @@ export class MenuController {
   }
 
   // this will render the menu pages and its contents
+  // NOTE: testing
   renderHelper(activeMenu) {
     if (!activeMenu) {
       console.error('no active menu');

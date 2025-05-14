@@ -4,6 +4,7 @@ export class ProjectHandler {
   constructor() {
     this.idProject = 1;
     this.projectList = [];
+    this.createDefault();
   }
 
   addProject(title, color) {
@@ -21,5 +22,9 @@ export class ProjectHandler {
 
   getlatestProject() {
     return this.projectList[this.projectList.length - 1];
+  }
+
+  createDefault() {
+    this.projectList.push(new Projects(0, 'Inbox', 'default'));
   }
 }

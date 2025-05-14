@@ -6,6 +6,10 @@ export class DateHandler {
   }
 
   listStatus(dueDate) {
+    if (!dueDate) {
+      return 'none';
+    }
+
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
@@ -37,6 +41,10 @@ export class DateHandler {
 
     const date = new Date(dateString);
 
+    if (dateString === null) {
+      return 'none';
+    }
+
     return daysOfWeek[date.getDay()];
   }
 
@@ -62,6 +70,11 @@ export class DateHandler {
 
   getTodayDate() {
     return this.dateToday;
+  }
+
+  createdAtDate() {
+    const date = new Date();
+    return date.getTime();
   }
 
   // NOTE: Create single update function

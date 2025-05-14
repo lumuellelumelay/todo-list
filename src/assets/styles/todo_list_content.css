@@ -245,6 +245,11 @@
     text-align: center;
 
     gap: 0.2rem;
+    visibility: visible;
+}
+
+.list-extra-description .date[data-date="none"] {
+    visibility: hidden;
 }
 
 .list-extra-description .date svg {
