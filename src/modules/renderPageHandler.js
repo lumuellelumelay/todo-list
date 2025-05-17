@@ -7,25 +7,48 @@
 
 import menuOptionHandler from '../render/menuRenderHandler.js';
 
-const menu = ['Today', 'Pending', 'Inbox', 'Overdue'];
+const menu = new Set(['Today', 'Pending', 'Inbox', 'Overdue']);
 const [todayHandler, upcomingHandler, overdueHandler, inboxHandler] =
   menuOptionHandler;
 
 // this will render the menu title or project name
 // CHECK: import in memuController
-export const renderPageHandler = (menuTitle) => {
+// CHECK: import in projectController
+export const renderPageHandler = (data) => {
   const parentTitleWrapper = document.querySelector('.top-section-wrapper');
   const titlePage = parentTitleWrapper.querySelector('.project-title');
 
-  if (menu.includes(menuTitle)) {
-    titlePage.textContent = menuTitle;
-    titlePage.dataset.name = menuTitle;
+  if (menu.has(data)) {
+    titlePage.textContent = data;
+    titlePage.dataset.name = data;
 
-    if (menuTitle === 'Pending') {
+    if (data === 'Pending') {
       titlePage.textContent = 'Upcoming';
     }
-    menuContentsRender(menuTitle);
+    menuContentsRender(data);
+
+    return;
   }
+
+  if (projectDataHelper(data)) {
+    titlePage.textContent = data.title;
+    titlePage.dataset.name = data.title;
+
+    projectContentsRender(data);
+  }
+};
+
+const projectDataHelper = (data) => {
+  const parentProjectContainer = document.querySelector(
+    '.bottom-add-project-section'
+  );
+  const projectCards = Array.from(
+    parentProjectContainer.querySelectorAll('.project-cards')
+  );
+
+  return projectCards.find((item) => {
+    return String(data.id) === String(item.dataset.projectId);
+  });
 };
 
 const menuContentsRender = (menuTitle) => {
@@ -46,4 +69,8 @@ const menuContentsRender = (menuTitle) => {
     default:
       console.error('no menu title');
   }
+};
+
+const projectContentsRender = (data) => {
+  console.log(data);
 };

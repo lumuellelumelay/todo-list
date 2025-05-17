@@ -1,6 +1,4 @@
 // import listInstance from './listManager.js';
-import projectListInstance from '../modules/projectManager.js';
-import { CreateCard } from '../assets/listCardHandler/createCard.js';
 import renderHandler from './renderModules.js';
 
 const [createCardHandler, removeCardHandler] = renderHandler;

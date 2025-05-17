@@ -12,6 +12,7 @@ export class CreateList {
   constructor() {
     this.form = this.initialize();
     this.setupEventListeners();
+    this.menu = new Set(['Today', 'Pending', 'Overdue']);
   }
 
   initialize() {
@@ -60,39 +61,23 @@ export class CreateList {
     };
 
     if (data.projectId !== 0) {
-      listInstance.addListToProjectId(
-        data.projectId,
-        data.title,
-        data.description,
-        data.day,
-        data.due_date,
-        data.created_at,
-        data.status,
-        data.completed
-      );
+      this.pushDataToProject(data);
 
       this.updateProjectItemCount(data.projectId);
 
       const activeElement = this.getActivePage();
 
-      this.renderActivePage(activeElement.dataset.name);
+      if (activeElement !== 'inbox') {
+        this.renderActivePage(activeElement);
+      }
     }
 
     if (projectListInstance.getProjectList()[0].id === data.projectId) {
-      listInstance.addListToProjectId(
-        data.projectId,
-        data.title,
-        data.description,
-        data.day,
-        data.due_date,
-        data.created_at,
-        data.status,
-        data.completed
-      );
+      this.pushDataToProject(data);
 
       const activeElement = this.getActivePage();
 
-      this.renderActivePage(activeElement.dataset.name);
+      this.renderActivePage(activeElement);
     }
   }
 
@@ -101,6 +86,19 @@ export class CreateList {
       return 0;
     }
     return Number(projectId);
+  }
+
+  pushDataToProject(data) {
+    listInstance.addListToProjectId(
+      data.projectId,
+      data.title,
+      data.description,
+      data.day,
+      data.due_date,
+      data.created_at,
+      data.status,
+      data.completed
+    );
   }
 
   updateProjectItemCount(selectedId) {
@@ -124,40 +122,35 @@ export class CreateList {
       document.querySelectorAll('#projects-container .project-cards')
     );
 
-    let activeElement;
     const choices = [...menuChoices, ...projectChoices];
 
-    choices.forEach((choice) => {
-      if (choice.dataset.isActive === 'true') {
-        activeElement = choice;
-      }
-    });
+    const activeElement = choices.find(
+      (choices) => choices.dataset.isActive === 'true'
+    );
 
-    return activeElement;
+    return this.getActivePageHelper(activeElement);
   }
 
-  renderActivePage(dataname) {
+  getActivePageHelper(activeElement) {
+    if (activeElement.dataset.name === 'Inbox') {
+      return activeElement.dataset.name;
+    }
+
+    if (this.menu.has(activeElement.dataset.name)) {
+      return activeElement.dataset.name;
+    }
+
+    if (activeElement.dataset.projectId !== '0') {
+      console.log(activeElement);
+      return Number(activeElement.dataset.projectId);
+    }
+  }
+
+  renderActivePage(data) {
     projectListInstance.getProjectList().forEach((project) => {
       project.list.forEach((list) => {
         if (!this.checkDuplicate(project, list)) {
-          if (
-            project.id === 0 &&
-            project.title.toLowerCase() === dataname.toLowerCase()
-          ) {
-            const listCard = new CreateCard(
-              project.id,
-              list.id,
-              list.title,
-              list.description,
-              list.status,
-              list.day,
-              project.color,
-              project.title
-            );
-            listCard.render();
-            return;
-          }
-          if (list.status === `${dataname.toLowerCase()}`) {
+          if (this.renderActivePageHelper(project, list, data)) {
             const listCard = new CreateCard(
               project.id,
               list.id,
@@ -174,6 +167,40 @@ export class CreateList {
         }
       });
     });
+  }
+
+  renderActivePageHelper(project, list, data) {
+    if (!data) {
+      console.error('undefined passed data');
+      return false;
+    }
+
+    if (data === project.id) {
+      return true;
+    }
+
+    if (this.menu.has(data)) {
+      return list.status === data.toLowerCase();
+    }
+
+    if (data === 'Inbox' && project.id === 0) {
+      return true;
+    }
+  }
+
+  renderCardList(project, list) {
+    const listCard = new CreateCard(
+      project.id,
+      list.id,
+      list.title,
+      list.description,
+      list.status,
+      list.day,
+      project.color,
+      project.title
+    );
+    listCard.render();
+    return;
   }
 
   checkDuplicate(project, list) {

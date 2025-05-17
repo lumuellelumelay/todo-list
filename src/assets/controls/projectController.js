@@ -1,4 +1,5 @@
 import projectListInstance from '../../modules/projectManager.js';
+import { renderPageHandler } from '../../modules/renderPageHandler.js';
 
 export class ProjectController {
   constructor() {
@@ -17,9 +18,12 @@ export class ProjectController {
     // get the active id
     // post the active id to the projectList.js to get the active project
     // post data to render the project data to the container (render.js)
-    console.log(this.activeId);
+
+    // console.log(this.activeId);
     const project = projectListInstance.getProject(this.activeId); // this will get the corresponding project
-    console.log(project);
+    // console.log(project);
+
+    renderPageHandler(project);
   }
 
   menuControls() {
