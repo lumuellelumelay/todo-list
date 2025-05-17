@@ -141,7 +141,6 @@ export class CreateList {
     }
 
     if (activeElement.dataset.projectId !== '0') {
-      console.log(activeElement);
       return Number(activeElement.dataset.projectId);
     }
   }

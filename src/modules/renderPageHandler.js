@@ -6,6 +6,7 @@
 // This file will serve as a render page handler
 
 import menuOptionHandler from '../render/menuRenderHandler.js';
+import renderProjectList from '../render/projectRenderHandler.js';
 
 const menu = new Set(['Today', 'Pending', 'Inbox', 'Overdue']);
 const [todayHandler, upcomingHandler, overdueHandler, inboxHandler] =
@@ -72,5 +73,5 @@ const menuContentsRender = (menuTitle) => {
 };
 
 const projectContentsRender = (data) => {
-  console.log(data);
+  renderProjectList(data);
 };
