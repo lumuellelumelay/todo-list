@@ -17,6 +17,8 @@
     width: 100%;
     max-width: 768px;
 
+    width: clamp(280px, 100%, 768px);
+
     position: relative;
 
     transition: all 0.3s ease;
@@ -187,15 +189,15 @@
     transition: all 0.1s ease;
 }
 
+.list-card input:checked {
+    background-color: var(--secondary-color-light);
+    border: 2px solid var(--primary-color);
+}
+
 .list-card .list-content {
     display: flex;
     justify-content: space-between;
     flex: 1;
-}
-
-.list-card input:checked {
-    background-color: var(--primary-color);
-    border: 2px solid var(--primary-color);
 }
 
 .list-description {
@@ -296,7 +298,8 @@
 
 .project-list p.project {
     font-size: var(--xx-small-font-size);
-    padding: 0.2rem;
+    font-weight: 400;
+    padding: 0.2rem 0.3rem;
 
     border-radius: 0.3rem;
 }
@@ -307,9 +310,15 @@
     border: 1px solid var(--default-choice);
 }
 
+.project-list p.project[data-color="gray"] {
+    background-color: #e4e4e4;
+    color: var(--text-secondary-color);
+    border: 1px solid var(--text-tertary-color);
+}
+
 .project-list p.project[data-color="red"] {
     /*red-choice*/
-    background-color: #E8B4BC;
+    background-color: #fde0e5;
     color: var(--red-choice);
     border: 1px solid var(--red-choice);
 }
@@ -330,7 +339,7 @@
 
 .project-list p.project[data-color="purple"] {
     /*purple-choice*/
-    background-color: #d6a3f0;
+    background-color: #e4b2fc;
     color: var(--purple-choice);
     border: 1px solid var(--purple-choice);
 }
@@ -381,4 +390,38 @@
 
 .list-card:hover .list-menu-wrapper > div svg {
     fill: var(--text-secondary-color);
+}
+
+@media screen and (max-width: 1110px) {
+    .todo-list-wrapper {
+        width: 100%;
+        max-width: calc(100% - 20rem);
+        left: 2rem;
+    }
+
+    .todo-list-wrapper[data-is-menu-active="true"] {
+        left: 8rem;
+    }
+
+    .todo-list-wrapper[data-is-menu-active="false"] {
+        max-width: calc(100% - 8rem);
+        left: 2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .todo-list-wrapper {
+        width: 100%;
+        max-width: calc(100% - 16rem);
+        left: 2rem;
+    }
+
+    .todo-list-wrapper[data-is-menu-active="true"] {
+        left: 8rem;
+    }
+
+    .todo-list-wrapper[data-is-menu-active="false"] {
+        max-width: calc(100% - 8rem);
+        left: 2rem;
+    }
 }

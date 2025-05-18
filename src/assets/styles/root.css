@@ -44,8 +44,8 @@
     --text-tertary-color: #888586;
     --text-color-light: #fbf7f8;
 
-    --pending-color: #60935D; ;
-    --today-color: #E76F51;
+    --pending-color: #7f39cf;
+    --today-color: #60935D;
     --overdue-color: #E15554;
 
     /* general size assets */
@@ -73,7 +73,7 @@
     --green-choice: #497248;
     --blue-choice: #576CA8;
     --purple-choice: #5B2C91;
-    --yellow-choice: #c1a12d;
+    --yellow-choice: #9f8526;
 
     /* colors for projects icons */
     --white-choice: #F5F3F5;

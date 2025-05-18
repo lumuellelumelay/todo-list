@@ -504,3 +504,9 @@
 .project-cards[data-is-active="true"] {
     background-color: var(--secondary-color-light);
 }
+
+@media screen and (max-width: 768px) {
+    .sidebar-menu[data-is-active="true"] {
+        width: 16rem;
+    }
+}

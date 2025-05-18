@@ -25,6 +25,6 @@ export class ProjectHandler {
   }
 
   createDefault() {
-    this.projectList.push(new Projects(0, 'Inbox', 'default'));
+    this.projectList.push(new Projects(0, 'Inbox', 'gray'));
   }
 }
