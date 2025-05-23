@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   toggleMenu();
 
-  new MenuController(document.querySelector('.menu-list'));
+  new MenuController();
   new ProjectController();
 
   new CreateProjects();

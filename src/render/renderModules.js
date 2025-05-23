@@ -30,6 +30,10 @@ const filterHandler = (project, list, activePage) => {
   return [];
 };
 
+// Create the render project list cards
+
+// Create the remove render project list cards
+
 const createCardHandler = (activePage) => {
   const projectsList = projectListInstance.getProjectList();
 

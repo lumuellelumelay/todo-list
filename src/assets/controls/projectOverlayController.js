@@ -12,7 +12,13 @@ const projectDialog = (overlayWrapper) => {
   );
 
   const addButton = document.querySelector('.add-button');
+  const addButtonMobile = document.querySelector('.mobile-menu .add-button');
   const closeButton = wrapper[0].querySelector('.close');
+
+  addButtonMobile.addEventListener('click', () => {
+    wrapper[0].dataset.isActive = 'true';
+    document.body.dataset.dialogActive = 'true';
+  });
 
   addButton.addEventListener('click', () => {
     wrapper[0].dataset.isActive = 'true';

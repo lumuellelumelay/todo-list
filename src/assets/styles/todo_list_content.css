@@ -108,10 +108,16 @@
     
     /* border: var(--glass-border-light); */
     border-radius: 0.3rem;
+    opacity: 1;
 
     cursor: pointer;
 
     transition: all 0.2s ease;
+}
+
+.top-section-wrapper .add-task.hidden{
+    visibility: hidden;
+    opacity: 0;
 }
 
 .top-section-wrapper .add-task svg {
@@ -141,7 +147,6 @@
 .top-section-wrapper .add-task:active p.add-task-text {
     color: var(--primary-color);
 }
-
 
 /* todo-list cards */
 .bottom-section-content {
@@ -423,5 +428,28 @@
     .todo-list-wrapper[data-is-menu-active="false"] {
         max-width: calc(100% - 8rem);
         left: 2rem;
+    }
+}
+
+@media screen and (max-width: 510px) {
+    .todo-list-wrapper {
+        width: 100%;
+        max-width: calc(100% - 0rem);
+    }
+
+    .todo-list-wrapper[data-is-menu-active="true"] {
+        left: 0rem;
+    }
+
+    .todo-list-wrapper[data-is-menu-active="false"] {
+        max-width: calc(100% - 0rem);
+        left: 0rem;
+    }
+
+    .list-menu-wrapper > div svg {
+        width: var(--medium-font-size);
+        height: var(--medium-font-size);
+    
+        fill: var(--text-secondary-color);
     }
 }

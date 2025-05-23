@@ -8,9 +8,22 @@
 import menuOptionHandler from '../render/menuRenderHandler.js';
 import renderProjectList from '../render/projectRenderHandler.js';
 
-const menu = new Set(['Today', 'Pending', 'Inbox', 'Overdue']);
-const [todayHandler, upcomingHandler, overdueHandler, inboxHandler] =
-  menuOptionHandler;
+const [
+  todayHandler,
+  upcomingHandler,
+  overdueHandler,
+  inboxHandler,
+  projectHandler,
+] = menuOptionHandler;
+
+const desktopMenu = new Set(['Today', 'Pending', 'Inbox', 'Overdue']);
+const mobileMenu = new Set([
+  'Today',
+  'Pending',
+  'Inbox',
+  'Overdue',
+  'Projects',
+]);
 
 // this will render the menu title or project name
 // CHECK: import in memuController
@@ -18,6 +31,10 @@ const [todayHandler, upcomingHandler, overdueHandler, inboxHandler] =
 export const renderPageHandler = (data) => {
   const parentTitleWrapper = document.querySelector('.top-section-wrapper');
   const titlePage = parentTitleWrapper.querySelector('.project-title');
+
+  const menu = displayHandler();
+
+  console.log(menu);
 
   if (menu.has(data)) {
     titlePage.textContent = data;
@@ -37,6 +54,22 @@ export const renderPageHandler = (data) => {
 
     projectContentsRender(data);
   }
+};
+
+const displayHandler = () => {
+  const handlerResize = () => {
+    const displayWidth = window.innerWidth;
+
+    if (displayWidth < 511) {
+      return mobileMenu;
+    } else {
+      return desktopMenu;
+    }
+  };
+
+  window.addEventListener('resize', handlerResize);
+
+  return handlerResize();
 };
 
 const projectDataHelper = (data) => {
@@ -66,6 +99,9 @@ const menuContentsRender = (menuTitle) => {
       break;
     case 'Overdue':
       overdueHandler('overdue');
+      break;
+    case 'Projects':
+      projectHandler('projects');
       break;
     default:
       console.error('no menu title');

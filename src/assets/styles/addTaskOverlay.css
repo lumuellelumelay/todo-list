@@ -53,7 +53,7 @@ form.my-task .top-section {
     gap: 0.5rem;
 }
 
-.forms-user .top-section input {
+.forms-user .top-section input[type='text'] {
     padding: 0.5rem;
 
     appearance: none;
@@ -72,14 +72,14 @@ form.my-task .top-section {
     transition: all 0.2s ease;
 }
 
-.forms-user .top-section input::placeholder {
+.forms-user .top-section input[type='text']::placeholder {
     font-weight: 500;
     font-size: var(--large-font-size);
     color: var(--text-secondary-color);
     opacity: 0.5;
 }
 
-.forms-user .top-section input:focus {
+.forms-user .top-section input[type='text']:focus {
     outline: none;
     border-bottom: 1px solid var(--secondary-color);
 }
@@ -139,6 +139,7 @@ form.my-task .top-section {
     font-family: 'Inter', sans-serif;
     font-size: var(--x-small-font-size);
     font-weight: 400;
+    color: var(--text-secondary-color);
 
     width: 8rem;
 
@@ -150,7 +151,7 @@ form.my-task .top-section {
     border: 1px solid var(--secondary-color);
 }
 
-.forms-user .bottom-section input {
+.forms-user .bottom-section input[type='date'] {
     border: var(--item-border);
     border-radius: 4px;
 
@@ -158,15 +159,17 @@ form.my-task .top-section {
 
     font-family: 'Inter', sans-serif;
     font-size: var(--x-small-font-size);
-    color: #000;
+    color: var(--text-secondary-color);
     font-weight: 400;
+
+    background-color: white;
 
     width: 8rem;
 
     transition: all 0.2s ease;
 }
-
-.forms-user .bottom-section input:focus {
+  
+.forms-user .bottom-section input[type='date']:focus {
     outline: none;
     border: 1px solid var(--secondary-color);
 }
@@ -207,4 +210,24 @@ form.my-task .buttons {
 
 .buttons button.cancel:hover {
     background-color: var(--item-background-hover);
+}
+
+@media screen and (max-width: 510px){
+    .forms-user .bottom-section select {
+        height: 2rem;
+    }
+
+    form.my-task .buttons {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 0.5rem;
+
+        margin-top: 1rem;
+    }
+
+    .buttons button.submit, .buttons button.cancel {
+        width: 100%;
+    }
 }
