@@ -70,6 +70,10 @@ export class CreateList {
       if (activeElement !== 'inbox') {
         this.renderActivePage(activeElement);
       }
+
+      this.resetFormValues();
+
+      this.closeOverlay();
     }
 
     if (projectListInstance.getProjectList()[0].id === data.projectId) {
@@ -78,6 +82,10 @@ export class CreateList {
       const activeElement = this.getActivePage();
 
       this.renderActivePage(activeElement);
+
+      this.resetFormValues();
+
+      this.closeOverlay();
     }
   }
 
@@ -99,6 +107,24 @@ export class CreateList {
       data.status,
       data.completed
     );
+  }
+
+  resetFormValues() {
+    this.formValues = {};
+    document.querySelector('#title').value = '';
+    document.querySelector('input[value="default"]').checked = true;
+    document.querySelector('#description').value = '';
+    document.querySelector('#projectList').value = 'none';
+    document.querySelector('#due-date').value = '';
+  }
+
+  closeOverlay() {
+    const overlayWrapper = Array.from(
+      document.querySelectorAll('.dialog-wrapper')
+    ).filter((item) => item.dataset.nameDialog === 'my-add-task-dialog');
+
+    overlayWrapper[0].dataset.isActive = 'false';
+    document.body.dataset.dialogActive = 'false';
   }
 
   updateProjectItemCount(selectedId) {
