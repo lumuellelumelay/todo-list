@@ -102,6 +102,11 @@ export class CreateList {
   }
 
   updateProjectItemCount(selectedId) {
+    const displayWidth = window.innerWidth;
+    if (displayWidth < 511) {
+      return;
+    }
+
     const parent = document.querySelector('#projects-container');
     const projectCards = Array.from(parent.querySelectorAll('.project-cards'));
 

@@ -1,5 +1,6 @@
 import projectListInstance from '../modules/projectManager.js';
 import { CreateCard } from '../assets/listCardHandler/createCard.js';
+import { CreateProjectCard } from '../assets/projectCardHandler/createCardProject.js';
 
 const renderCard = (data) => {
   data.forEach((item) => {
@@ -30,9 +31,83 @@ const filterHandler = (project, list, activePage) => {
   return [];
 };
 
+const createProjectContainerHandler = () => {
+  const parentContainer = document.querySelector('.todo-list-card-container');
+
+  const createProjectCardContainer = document.createElement('div');
+  createProjectCardContainer.classList.add('projects-container');
+  createProjectCardContainer.setAttribute('id', 'projects-container');
+
+  parentContainer.appendChild(createProjectCardContainer);
+
+  return parentContainer;
+};
+
+const updateProjectItemCountMobile = () => {
+  const parentContainer = document.querySelector('.todo-list-card-container');
+  const projectContainer = parentContainer.querySelector('#projects-container');
+
+  if (!projectContainer) return;
+
+  const projectCards = Array.from(
+    projectContainer.querySelectorAll('.project-cards')
+  );
+  const projectList = projectListInstance.getProjectList();
+
+  projectCards.forEach((projectCards) => {
+    const project = projectList.find(
+      (project) => project.id === Number(projectCards.dataset.projectId)
+    );
+
+    projectCards.querySelector('.items').textContent = `${project.list.length}`;
+  });
+};
+
 // Create the render project list cards
+const createProjectCardsHandler = (activePage) => {
+  if (activePage !== 'projects') {
+    return;
+  }
+
+  const projectsList = projectListInstance.getProjectList();
+
+  const mobileDisplay = window.innerWidth < 511;
+  if (mobileDisplay) {
+    createProjectContainerHandler();
+
+    projectsList.forEach((project) => {
+      if (project.title.toLowerCase() === 'inbox') return;
+
+      console.log(project);
+      const projectCard = new CreateProjectCard(
+        project.id,
+        project.title,
+        project.color,
+        project.list.length
+      );
+
+      projectCard.renderCard();
+    });
+
+    updateProjectItemCountMobile();
+  }
+};
 
 // Create the remove render project list cards
+const removeProjectCardsHandler = () => {
+  const mobileDisplay = window.innerWidth < 511;
+  if (mobileDisplay) {
+    const parentContainer = document.querySelector('.todo-list-card-container');
+    const projectContainer = parentContainer.querySelector(
+      '#projects-container'
+    );
+
+    if (!projectContainer) return;
+
+    parentContainer.removeChild(projectContainer);
+    return;
+  }
+};
 
 const createCardHandler = (activePage) => {
   const projectsList = projectListInstance.getProjectList();
@@ -72,4 +147,9 @@ const removeCardHandler = () => {
   }
 };
 
-export default [createCardHandler, removeCardHandler];
+export default [
+  createProjectCardsHandler,
+  removeProjectCardsHandler,
+  createCardHandler,
+  removeCardHandler,
+];

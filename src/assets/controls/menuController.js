@@ -49,6 +49,19 @@ export class MenuController {
       }
     };
 
+    const removeProjectCardsHandler = () => {
+      const parentContainer = document.querySelector(
+        '.todo-list-card-container'
+      );
+
+      if (!parentContainer.querySelector('#projects-container')) return;
+      const projectContainer = parentContainer.querySelector(
+        '#projects-container'
+      );
+      parentContainer.removeChild(projectContainer);
+      return;
+    };
+
     const handlerResize = () => {
       const displayWidth = window.innerWidth;
 
@@ -58,6 +71,7 @@ export class MenuController {
       } else {
         this.menuList = document.querySelector('.desktop-menu .menu-list');
         checkProjectPageStatus();
+        removeProjectCardsHandler();
         this.getListMenu();
       }
     };

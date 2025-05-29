@@ -1,7 +1,12 @@
 // import listInstance from './listManager.js';
 import renderHandler from './renderModules.js';
 
-const [createCardHandler, removeCardHandler] = renderHandler;
+const [
+  createProjectCardsHandler,
+  removeProjectCardsHandler,
+  createCardHandler,
+  removeCardHandler,
+] = renderHandler;
 
 // getting the section for the render list cards
 const addTaskDisplayHandler = (activePage) => {
@@ -17,6 +22,7 @@ const addTaskDisplayHandler = (activePage) => {
 
 const todayHandler = (activePage) => {
   addTaskDisplayHandler(activePage);
+  removeProjectCardsHandler();
 
   removeCardHandler();
   createCardHandler(activePage);
@@ -24,6 +30,7 @@ const todayHandler = (activePage) => {
 
 const upcomingHandler = (activePage) => {
   addTaskDisplayHandler(activePage);
+  removeProjectCardsHandler();
 
   removeCardHandler();
   createCardHandler(activePage);
@@ -31,6 +38,7 @@ const upcomingHandler = (activePage) => {
 
 const overdueHandler = (activePage) => {
   addTaskDisplayHandler(activePage);
+  removeProjectCardsHandler();
 
   removeCardHandler();
   createCardHandler(activePage);
@@ -38,6 +46,7 @@ const overdueHandler = (activePage) => {
 
 const inboxHandler = (activePage) => {
   addTaskDisplayHandler(activePage);
+  removeProjectCardsHandler();
 
   removeCardHandler();
   createCardHandler(activePage);
@@ -47,8 +56,7 @@ const projectHandler = (activePage) => {
   addTaskDisplayHandler(activePage);
 
   removeCardHandler();
-  // NOTE: create the render project list cards
-  // NOTE: create remove render porject list cards
+  createProjectCardsHandler(activePage);
 };
 
 export default [

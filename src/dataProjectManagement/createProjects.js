@@ -2,7 +2,7 @@
 // and creates the project card.
 // The form data is handled with projectList.js
 // and retrieve the latest project from the projectList.js
-import { CreateCard } from '../assets/projectCardHandler/createCard.js';
+import { CreateProjectCard } from '../assets/projectCardHandler/createCardProject.js';
 import projectListInstance from '../modules/projectManager.js';
 
 import optionHandler from '../modules/optionManager.js';
@@ -25,9 +25,6 @@ export class CreateProjects {
 
   submitHandler(e) {
     e.preventDefault();
-
-    document.querySelector('#project-name').value;
-    document.querySelector('input[name="color"]:checked').value;
 
     const formData = new FormData(this.form);
     const formValues = Object.fromEntries(formData.entries()); // form values will be example: {projectName: 'example', color: default}
@@ -78,7 +75,7 @@ export class CreateProjects {
   createProjectCard() {
     const { id, title, color, list } = projectListInstance.getlatestProject();
 
-    const cardInstance = new CreateCard(id, title, color, list);
+    const cardInstance = new CreateProjectCard(id, title, color, list);
 
     cardInstance.renderCard();
 

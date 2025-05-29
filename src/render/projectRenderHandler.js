@@ -1,17 +1,17 @@
 import { CreateCard } from '../assets/listCardHandler/createCard.js';
 
 const renderProjectList = (project) => {
-  removeCardHandler();
+  removeCardListHandler();
 
   // checking if project list is empty, it will not render anything
   if (project.list.length === 0) {
     return;
   }
 
-  renderCardHandler(project);
+  renderCardListHandler(project);
 };
 
-const renderCardHandler = (project) => {
+const renderCardListHandler = (project) => {
   project.list.forEach((item) => {
     const listCard = new CreateCard(
       project.id,
@@ -28,7 +28,7 @@ const renderCardHandler = (project) => {
   });
 };
 
-const removeCardHandler = () => {
+const removeCardListHandler = () => {
   const parent = document.querySelector('.bottom-section-content');
   const listCardContainer = parent.querySelector('.todo-list-card-container');
 

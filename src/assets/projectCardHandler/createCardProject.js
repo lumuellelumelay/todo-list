@@ -1,4 +1,4 @@
-export class CreateCard {
+export class CreateProjectCard {
   constructor(projectId, projectName, colorChoice, projectList) {
     this.projectId = projectId;
     this.projectName = projectName;
@@ -9,7 +9,34 @@ export class CreateCard {
   }
 
   initialize() {
-    return document.querySelector('#projects-container');
+    const selectedParent = this.displaySizeHandler();
+    console.log(selectedParent);
+
+    return this.checkNullSelector(selectedParent);
+  }
+
+  checkNullSelector(selectedParent) {
+    const checkSelector = selectedParent.querySelector('#projects-container');
+
+    if (checkSelector) {
+      return checkSelector;
+    } else {
+      return null;
+    }
+  }
+
+  displaySizeHandler() {
+    const handlerResize = () => {
+      const displayWidth = window.innerWidth;
+
+      const selector =
+        displayWidth < 511 ? '.todo-list-card-container' : '.bottom-section';
+
+      return document.querySelector(selector);
+    };
+
+    window.addEventListener('resize', handlerResize);
+    return handlerResize();
   }
 
   createCard() {
@@ -96,6 +123,8 @@ export class CreateCard {
   }
 
   assembleCard() {
+    // console.log(this.wrapper, this.projectCard.projectCards);
+
     this.wrapper.append(this.projectCard.projectCards);
 
     this.projectCard.projectCards.append(
@@ -114,6 +143,10 @@ export class CreateCard {
   }
 
   renderCard() {
+    if (this.wrapper === null) {
+      return;
+    }
+
     this.createCard();
     this.setAttribute();
     this.showValues();
