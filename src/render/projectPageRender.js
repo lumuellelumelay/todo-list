@@ -57,11 +57,38 @@ export class ProjectPageRenderMobile {
   }
 
   activeProjectContentPage(projectData) {
+    this.createMobileProjectCardList();
+
+    this.activeProjectChangeTitle(projectData);
+
+    renderProjectList(projectData);
+  }
+
+  createMobileProjectCardList() {
     const mobileProjectList = document.createElement('div');
     mobileProjectList.classList.add('mobile-card-list');
     this.wrapperMobile.appendChild(mobileProjectList);
+  }
 
-    renderProjectList(projectData);
+  showAddTask(wrapper) {
+    const addTask = wrapper.querySelector('.add-task');
+    addTask.classList.remove('hidden');
+  }
+
+  activeProjectChangeTitle(projectData) {
+    const topSelectionContent = document.querySelector('.top-section-content');
+    const topSelectionWrapper = topSelectionContent.querySelector(
+      '.top-section-wrapper'
+    );
+
+    this.showAddTask(topSelectionWrapper);
+
+    this.wrapperMobile.setAttribute('data-project-id', projectData.id);
+
+    const titleContainer = topSelectionWrapper.querySelector('.title');
+    const title = titleContainer.querySelector('.project-title');
+    title.dataset.name = projectData.title;
+    title.textContent = title.dataset.name;
   }
 
   renderHandler() {

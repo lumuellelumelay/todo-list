@@ -22,12 +22,24 @@ const addTaskDisplayHandler = (activePage) => {
   addTask.classList.add('hidden');
 };
 
+const removeListCardMobile = () => {
+  const parentContainer = document.querySelector('.todo-list-card-container');
+  const mobileContainer = parentContainer.querySelector(
+    '.todo-list-card-container-mobile'
+  );
+
+  if (!mobileContainer) return;
+
+  parentContainer.removeChild(mobileContainer);
+};
+
 const menuOption = (activePage) => {
   addTaskDisplayHandler(activePage);
 
   const mobileDisplay = window.innerWidth < 511;
   if (mobileDisplay) {
     projectListRender.removeEventProjectCards();
+    removeListCardMobile();
   }
 
   removeProjectCardsHandler();

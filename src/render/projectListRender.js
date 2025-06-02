@@ -30,12 +30,35 @@ export class ProjectsListRender {
     return this.listWrapper.querySelector('#projects-container');
   }
 
+  removeAddTask(wrapper) {
+    const addTask = wrapper.querySelector('.add-task');
+    addTask.classList.add('hidden');
+  }
+
+  changeActiveToProject() {
+    const topSelectionContent = document.querySelector('.top-section-content');
+    const topSelectionWrapper = topSelectionContent.querySelector(
+      '.top-section-wrapper'
+    );
+
+    this.removeAddTask(topSelectionWrapper);
+
+    const titleContainer = topSelectionWrapper.querySelector('.title');
+    const title = titleContainer.querySelector('.project-title');
+    title.dataset.name = 'Projects';
+    title.textContent = title.dataset.name;
+  }
+
   backButtonHandler(mobileWrapper, projectPageRender) {
     const backButton = mobileWrapper.querySelector('.back-button');
     backButton.addEventListener('click', () => {
       projectPageRender.removeProjectListWrapper();
 
+      this.listWrapper.removeAttribute('data-project-id');
+
       createProjectCardsHandler('projects');
+
+      this.changeActiveToProject();
       this.addEventProjectCards();
     });
   }

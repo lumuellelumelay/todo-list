@@ -24,6 +24,7 @@ export class MenuController {
   }
 
   displayHandler() {
+    // NOTE: mobile to desktop testing
     const checkProjectPageStatus = () => {
       if (this.menu.length === 4) {
         const mobileMenuParent = document.querySelector(
@@ -40,6 +41,7 @@ export class MenuController {
 
           mobileMenuList[4].querySelector('a').dataset.isActive = 'false';
           mobileMenuList[4].querySelector('div').dataset.iconType = 'line';
+          console.log('Mobile Menu', mobileMenuList);
 
           mobileMenuList[0].querySelector('a').dataset.isActive = 'true';
           mobileMenuList[0].querySelector('div').dataset.iconType = 'solid';
@@ -87,7 +89,6 @@ export class MenuController {
   }
 
   // this will render the menu pages and its contents
-  // NOTE: testing
   renderHelper(activeMenu) {
     if (!activeMenu) {
       console.error('no active menu');

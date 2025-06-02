@@ -146,6 +146,15 @@ export class CreateList {
   }
 
   getActivePage() {
+    const display = window.innerWidth;
+    if (display < 511) {
+      const mobileWrapper = document.querySelector(
+        '.todo-list-card-container-mobile'
+      );
+
+      return Number(mobileWrapper.dataset.projectId);
+    }
+
     const menuChoices = Array.from(
       document.querySelectorAll('.menu-list li a')
     );
