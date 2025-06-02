@@ -8,13 +8,7 @@
 import menuOptionHandler from '../render/menuRenderHandler.js';
 import renderProjectList from '../render/projectRenderHandler.js';
 
-const [
-  todayHandler,
-  upcomingHandler,
-  overdueHandler,
-  inboxHandler,
-  projectHandler,
-] = menuOptionHandler;
+const [menuOption, projectHandler] = menuOptionHandler;
 
 const desktopMenu = new Set(['Today', 'Pending', 'Inbox', 'Overdue']);
 const mobileMenu = new Set([
@@ -33,8 +27,6 @@ export const renderPageHandler = (data) => {
   const titlePage = parentTitleWrapper.querySelector('.project-title');
 
   const menu = displayHandler();
-
-  console.log(menu);
 
   if (menu.has(data)) {
     titlePage.textContent = data;
@@ -87,24 +79,13 @@ const projectDataHelper = (data) => {
 
 const menuContentsRender = (menuTitle) => {
   // for rendering the menu contents
-  switch (menuTitle) {
-    case 'Today':
-      todayHandler('today');
-      break;
-    case 'Pending':
-      upcomingHandler('pending');
-      break;
-    case 'Inbox':
-      inboxHandler('inbox');
-      break;
-    case 'Overdue':
-      overdueHandler('overdue');
-      break;
-    case 'Projects':
-      projectHandler('projects');
-      break;
-    default:
-      console.error('no menu title');
+  const menu = menuTitle.toLowerCase();
+
+  if (desktopMenu.has(menuTitle)) {
+    menuOption(menu);
+    return;
+  } else {
+    projectHandler(menu);
   }
 };
 

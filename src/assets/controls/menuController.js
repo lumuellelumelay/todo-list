@@ -123,7 +123,6 @@ export class MenuController {
   menuStatusChecker(currentMenu) {
     const websiteWidth = window.innerWidth;
     const currentMenuName = currentMenu.querySelector('a').dataset.name;
-    console.log(currentMenu);
 
     if (websiteWidth < 511) {
       const menuListDesktopParent = document.querySelector(

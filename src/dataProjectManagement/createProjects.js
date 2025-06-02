@@ -4,6 +4,7 @@
 // and retrieve the latest project from the projectList.js
 import { CreateProjectCard } from '../assets/projectCardHandler/createCardProject.js';
 import projectListInstance from '../modules/projectManager.js';
+import projectListRender from '../render/projectListRenderHandler.js';
 
 import optionHandler from '../modules/optionManager.js';
 
@@ -78,10 +79,32 @@ export class CreateProjects {
     const cardInstance = new CreateProjectCard(id, title, color, list);
 
     cardInstance.renderCard();
+    this.addEventProjectCardsHandler();
 
-    // NOTE: add OptionHandler here
     // NOTE: testing
     optionHandler.updateOption();
+  }
+
+  getActiveMenu() {
+    const menuMobileChoices = Array.from(
+      document.querySelectorAll('.mobile-menu .menu-list li a')
+    );
+
+    const activeMenu = menuMobileChoices.find(
+      (menu) => menu.dataset.isActive === 'true'
+    );
+
+    return activeMenu;
+  }
+
+  // NOTE: Diagnose the problem with duplicate delegation
+  addEventProjectCardsHandler() {
+    if (this.getActiveMenu().dataset.name !== 'Projects') return;
+
+    // reset the event listener when adding project items
+    projectListRender.removeEventProjectCards();
+
+    projectListRender.addEventProjectCards();
   }
 
   loadOption() {

@@ -26,7 +26,18 @@ export class CreateCard {
     this.cardContainer = this.initialize();
   }
 
+  // NOTE: testing
   initialize() {
+    const container = document.querySelector('.todo-list-card-container');
+    if (container.querySelector('.todo-list-card-container-mobile')) {
+      const mobileWrapper = container.querySelector(
+        '.todo-list-card-container-mobile'
+      );
+      const mobileContainer = mobileWrapper.querySelector('.mobile-card-list');
+
+      console.log('mobile');
+      return mobileContainer;
+    }
     return document.querySelector('.todo-list-card-container');
   }
 
