@@ -50,7 +50,7 @@ export class ProjectPageRenderMobile {
 
     const backButton = document.createElement('button');
     backButton.classList.add('back-button');
-    backButton.textContent = 'Back'; // temporary
+    backButton.textContent = '< Back'; // temporary
 
     this.wrapperMobile.appendChild(buttonContainer);
     buttonContainer.appendChild(backButton);

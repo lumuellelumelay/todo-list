@@ -452,4 +452,20 @@
     
         fill: var(--text-secondary-color);
     }
+
+    .todo-list-card-container-mobile .button-container {
+        padding: 0  1rem 1rem 1rem;
+    }
+
+    .todo-list-card-container-mobile .button-container > button {
+        padding: 0.8rem 2.5rem;
+        font-size: var(--small-font-size);
+        font-weight: 600;
+
+        color: var(--text-color-light);
+
+        background-color: var(--accent-color);
+        border: none;
+        border-radius: 0.5rem;
+    }
 }
