@@ -152,7 +152,9 @@ export class CreateList {
         '.todo-list-card-container-mobile'
       );
 
-      return Number(mobileWrapper.dataset.projectId);
+      if (mobileWrapper) {
+        return Number(mobileWrapper.dataset.projectId);
+      }
     }
 
     const menuChoices = Array.from(
