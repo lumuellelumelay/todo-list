@@ -24,6 +24,15 @@ const [
 export class ProjectsListRender {
   constructor() {
     this.listWrapper = document.querySelector('.todo-list-card-container');
+    this.activeElement = null;
+  }
+
+  postActiveElement(status) {
+    this.activeElement = status;
+  }
+
+  getActiveElement() {
+    return this.activeElement;
   }
 
   getProjectWrapper() {
@@ -63,16 +72,17 @@ export class ProjectsListRender {
     });
   }
 
+  // NOTE: Testing
   activeProjectHandler = (e) => {
     e.preventDefault();
     e.stopPropagation();
     const target = e.target.closest('.project-cards');
+    this.activeElement = target;
 
     const projectData = this.getDataActiveProject(target);
 
     const projectPageRender = new ProjectPageRenderMobile(projectData);
 
-    // NOTE: testing
     projectPageRender.renderHandler();
 
     const mobileWrapper = projectPageRender.getMobileWrapper();

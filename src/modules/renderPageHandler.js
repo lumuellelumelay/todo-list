@@ -48,6 +48,19 @@ export const renderPageHandler = (data) => {
   }
 };
 
+const pageRenderToDesktop = (display) => {
+  const parentWrapper = document.querySelector('.todo-list-card-container');
+  const mobileListContainer = parentWrapper.querySelector(
+    '.todo-list-card-container-mobile'
+  );
+
+  if (!mobileListContainer) return;
+
+  if (display > 511) {
+    mobileListContainer.remove();
+  }
+};
+
 const displayHandler = () => {
   const handlerResize = () => {
     const displayWidth = window.innerWidth;
@@ -55,6 +68,7 @@ const displayHandler = () => {
     if (displayWidth < 511) {
       return mobileMenu;
     } else {
+      pageRenderToDesktop(displayWidth);
       return desktopMenu;
     }
   };

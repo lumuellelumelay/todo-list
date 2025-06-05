@@ -1,12 +1,14 @@
 import projectListInstance from '../../modules/projectManager.js';
 import { renderPageHandler } from '../../modules/renderPageHandler.js';
 import { CreateProjectCard } from '../projectCardHandler/createCardProject.js';
+import projectListRender from '../../render/projectListRenderHandler.js';
 
 export class ProjectController {
   constructor() {
     this.projectContainer = document.querySelector('.projects-container');
     this.activeId = null;
     this.target = null;
+    this.activeElementMobile = null;
     this.initialize();
   }
 
@@ -16,7 +18,6 @@ export class ProjectController {
     this.displayHandler();
   }
 
-  // NOTE: testing stage
   renderHelper() {
     // get the active id
     // post the active id to the projectList.js to get the active project
@@ -55,6 +56,7 @@ export class ProjectController {
     return false;
   }
 
+  // NOTE: Testing
   displayHandler() {
     const projectCardList = () => {
       const projectList = projectListInstance.getProjectList();
@@ -85,12 +87,37 @@ export class ProjectController {
       }
     };
 
+    const activeElementMobileToDesktop = () => {
+      const projectCards = Array.from(
+        this.projectContainer.querySelectorAll('.project-cards')
+      );
+
+      const findActiveElement = projectCards.find((item) => {
+        return (
+          item.dataset.projectId === this.activeElementMobile.dataset.projectId
+        );
+      });
+
+      if (findActiveElement) {
+        projectListRender.postActiveElement(null);
+        findActiveElement.dataset.isActive = 'true';
+        this.activeId = Number(findActiveElement.dataset.projectId);
+        this.renderHelper();
+      }
+    };
+
     const handlerResize = () => {
       const displayWidth = window.innerWidth;
 
       if (displayWidth > 511) {
         projectCardList();
         this.updateProjectItemCountDesktop();
+
+        const element = projectListRender.getActiveElement();
+        if (element) {
+          this.activeElementMobile = element;
+          activeElementMobileToDesktop();
+        }
       }
     };
 

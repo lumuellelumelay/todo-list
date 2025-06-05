@@ -62,7 +62,6 @@ const updateProjectItemCountMobile = () => {
  *
  * @param {string} activePage - The current active page.
  */
-
 const createProjectCardsHandler = (activePage) => {
   if (activePage !== 'projects') {
     return;
