@@ -5,7 +5,6 @@ import projectListRender from '../../render/projectListRenderHandler.js';
 export class MenuController {
   constructor() {
     this.menuList = document.querySelector('.menu-list');
-    // this.activeMenu = null;
     this.isMobileView = window.innerWidth < 511;
     this.menu = [];
     this.initialize();
@@ -46,7 +45,6 @@ export class MenuController {
       mobileMenuList[0].querySelector('div').dataset.iconType = 'solid';
     };
 
-    // NOTE: mobile to desktop testing
     const checkProjectPageStatus = () => {
       const mobileMenuParent = document.querySelector(
         '.mobile-menu .menu-list'
@@ -56,9 +54,6 @@ export class MenuController {
       );
 
       if (this.menu.length === 4) {
-        console.log('CheckProject Here');
-        console.log(this.menu);
-
         activeInboxChecker(mobileMenuList);
 
         const projectMobileMenu = mobileMenuList[4].querySelector('a');
@@ -70,9 +65,6 @@ export class MenuController {
           this.renderHelper(this.menu[0].querySelector('a').dataset.name);
         }
       } else {
-        console.log('Hello!!');
-        console.log(mobileMenuList);
-
         // get the active project element on desktop
         const parentContainer = document.querySelector('.projects-container');
 

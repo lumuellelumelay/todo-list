@@ -10,7 +10,6 @@ export class CreateProjectCard {
 
   initialize() {
     const selectedParent = this.displaySizeHandler();
-    console.log(selectedParent);
 
     return this.checkNullSelector(selectedParent);
   }
