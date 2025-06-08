@@ -20,24 +20,21 @@ export class OptionHandler {
   }
 
   // this will update the option when the project is created
-  updateOption() {
-    projectListInstance.getProjectList().forEach((items) => {
-      const optionSelection = Array.from(
-        this.wrapper.querySelectorAll('option')
-      ).some((option) => option.value === String(items.id));
+  updateOption(data) {
+    const optionSelection = Array.from(
+      this.wrapper.querySelectorAll('option')
+    ).some((option) => option.value === String(data.id));
 
-      if (!optionSelection) {
-        this.createOption(items.id, items.title);
-        // console.log(items);
-      }
-    });
+    if (!optionSelection) {
+      this.createOption(data.id, data.title);
+    }
   }
 
   // this handles the delete option
   // NOTE: testing
   deleteOption2() {
     const projects = projectListInstance
-      .getProjectList()
+      .getStoredProjects()
       .map((project) => String(project.id));
 
     Array.from(this.wrapper.querySelectorAll('option')).forEach((option) => {

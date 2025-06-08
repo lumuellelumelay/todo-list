@@ -13,11 +13,24 @@ export class CreateProjects {
     this.formValues = {};
     this.form = this.initialize();
     this.setupEventListeners();
-    this.loadOption();
   }
 
   initialize() {
+    this.renderStoredProjects();
+
     return document.querySelector('.my-project-dialog form');
+  }
+
+  renderStoredProjects() {
+    const storedProjects = projectListInstance.getStoredProjects();
+
+    storedProjects.forEach((item) => {
+      if (item.id !== 0) {
+        this.createProjectCard(item.id, item.title, item.color, item.list);
+      }
+
+      optionHandler.updateOption(item);
+    });
   }
 
   setupEventListeners() {
@@ -51,7 +64,7 @@ export class CreateProjects {
       this.formValues.color
     );
 
-    this.createProjectCard();
+    this.createLatestProjectCard();
 
     this.closeOverlay();
 
@@ -73,16 +86,19 @@ export class CreateProjects {
     document.querySelector('input[value="default"]').checked = true;
   }
 
-  createProjectCard() {
-    const { id, title, color, list } = projectListInstance.getlatestProject();
+  createLatestProjectCard() {
+    const latestProject = projectListInstance.getlatestProject();
+    const { id, title, color, list } = latestProject;
+    this.createProjectCard(id, title, color, list);
 
+    optionHandler.updateOption(latestProject);
+  }
+
+  createProjectCard(id, title, color, list) {
     const cardInstance = new CreateProjectCard(id, title, color, list);
 
     cardInstance.renderCard();
     this.addEventProjectCardsHandler();
-
-    // NOTE: testing
-    optionHandler.updateOption();
   }
 
   getActiveMenu() {
@@ -97,7 +113,6 @@ export class CreateProjects {
     return activeMenu;
   }
 
-  // NOTE: Diagnose the problem with duplicate delegation
   addEventProjectCardsHandler() {
     if (this.getActiveMenu().dataset.name !== 'Projects') return;
 
@@ -105,9 +120,5 @@ export class CreateProjects {
     projectListRender.removeEventProjectCards();
 
     projectListRender.addEventProjectCards();
-  }
-
-  loadOption() {
-    optionHandler.updateOption();
   }
 }

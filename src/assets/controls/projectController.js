@@ -35,7 +35,7 @@ export class ProjectController {
     const projectCards = Array.from(
       projectContainer.querySelectorAll('.project-cards')
     );
-    const projectList = projectListInstance.getProjectList();
+    const projectList = projectListInstance.getStoredProjects();
 
     projectCards.forEach((projectCards) => {
       const project = projectList.find(
@@ -56,10 +56,9 @@ export class ProjectController {
     return false;
   }
 
-  // NOTE: Testing
   displayHandler() {
     const projectCardList = () => {
-      const projectList = projectListInstance.getProjectList();
+      const projectList = projectListInstance.getStoredProjects();
       const projectCards = Array.from(
         this.projectContainer.querySelectorAll('.project-cards')
       );

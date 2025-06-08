@@ -40,7 +40,7 @@ const updateProjectItemCountMobile = () => {
   const projectCards = Array.from(
     projectContainer.querySelectorAll('.project-cards')
   );
-  const projectList = projectListInstance.getProjectList();
+  const projectList = projectListInstance.getStoredProjects();
 
   projectCards.forEach((projectCards) => {
     const project = projectList.find(
@@ -67,7 +67,7 @@ const createProjectCardsHandler = (activePage) => {
     return;
   }
 
-  const projectsList = projectListInstance.getProjectList();
+  const projectsList = projectListInstance.getStoredProjects();
 
   const mobileDisplay = window.innerWidth < 511;
   if (mobileDisplay) {
@@ -146,7 +146,7 @@ const filterHandler = (project, list, activePage) => {
  * @param {string} activePage - The active page parameter.
  */
 const createCardHandler = (activePage) => {
-  const projectsList = projectListInstance.getProjectList();
+  const projectsList = projectListInstance.getStoredProjects();
 
   const allMatchingList = projectsList.flatMap((project) => {
     const matchingList = filterHandler(project, project.list, activePage);

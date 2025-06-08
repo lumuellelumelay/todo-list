@@ -49,13 +49,13 @@ export class DateHandler {
   }
 
   updateListStatus() {
-    if (projectListInstance.getProjectList().length === 0) {
+    if (projectListInstance.getStoredProjects().length === 0) {
       return;
     }
 
     const statusCache = {};
 
-    projectListInstance.getProjectList().forEach((project) => {
+    projectListInstance.getStoredProjects().forEach((project) => {
       project.list.forEach((list) => {
         const dueDate = list.due_date;
 

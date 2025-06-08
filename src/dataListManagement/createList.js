@@ -10,13 +10,22 @@ import { CreateCard } from '../assets/listCardHandler/createCard.js';
 
 export class CreateList {
   constructor() {
+    this.menu = new Set(['Today', 'Pending', 'Overdue']);
     this.form = this.initialize();
     this.setupEventListeners();
-    this.menu = new Set(['Today', 'Pending', 'Overdue']);
   }
 
   initialize() {
+    this.renderStoredProjects();
+
     return document.querySelector('.my-add-task-dialog form');
+  }
+
+  renderStoredProjects() {
+    const storedProjects = projectListInstance.getStoredProjects();
+
+    const activePage = this.getActivePage();
+    this.renderActivePage(activePage);
   }
 
   setupEventListeners() {
@@ -76,7 +85,9 @@ export class CreateList {
       this.closeOverlay();
     }
 
-    if (projectListInstance.getProjectList()[0].id === data.projectId) {
+    // NOTE: testing (make getInboxId instance)
+    // if (projectListInstance.getProjectList()[0].id === data.projectId)
+    if (projectListInstance.getInbox().id === data.projectId) {
       this.pushDataToProject(data);
 
       const activeElement = this.getActivePage();
@@ -140,6 +151,7 @@ export class CreateList {
       return items.dataset.projectId === String(selectedId);
     });
 
+    // Note: testing
     projectCard.querySelector('.items').textContent = `${
       projectListInstance.getProject(selectedId).list.length
     }`;
@@ -188,7 +200,7 @@ export class CreateList {
   }
 
   renderActivePage(data) {
-    projectListInstance.getProjectList().forEach((project) => {
+    projectListInstance.getStoredProjects().forEach((project) => {
       project.list.forEach((list) => {
         if (!this.checkDuplicate(project, list)) {
           if (this.renderActivePageHelper(project, list, data)) {
@@ -227,6 +239,8 @@ export class CreateList {
     if (data === 'Inbox' && project.id === 0) {
       return true;
     }
+
+    return false;
   }
 
   renderCardList(project, list) {
