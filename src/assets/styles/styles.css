@@ -3,6 +3,8 @@
 @import './todo_list_content.css';
 @import './projectOverlay.css';
 @import './addTaskOverlay.css';
+@import './deleteOverlay.css';
+@import './editOverlay.css';
   
 .todo-list-container {
     display: flex;

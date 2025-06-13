@@ -4,19 +4,25 @@ import projectListInstance from '../modules/projectManager.js';
 export class OptionHandler {
   constructor() {
     this.wrapper = document.querySelector('.forms-user');
+    this.editWrapper = document.querySelector('.edit-form-user');
     this.initialize();
   }
 
   initialize() {
     this.wrapper = this.wrapper.querySelector('#projectList');
+    this.editWrapper = this.editWrapper.querySelector('#projectList');
   }
 
   createOption(projectId, title) {
-    const option = document.createElement('option');
-    option.value = projectId;
-    option.textContent = title;
+    const optionFormUser = document.createElement('option');
+    optionFormUser.value = projectId;
+    optionFormUser.textContent = title;
+    this.wrapper.append(optionFormUser);
 
-    this.wrapper.append(option);
+    const optionEditFormUser = document.createElement('option');
+    optionEditFormUser.value = projectId;
+    optionEditFormUser.textContent = title;
+    this.editWrapper.append(optionEditFormUser);
   }
 
   // this will update the option when the project is created

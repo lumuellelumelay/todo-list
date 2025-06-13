@@ -11,7 +11,7 @@ export class ListHandler {
 
     if (!checkListId) {
       localStorage.setItem('listId', 1);
-      return localStorage.getItem('listId');
+      return Number(localStorage.getItem('listId'));
     }
 
     return checkListId;
@@ -31,7 +31,7 @@ export class ListHandler {
     const project = projectListInstance.getProject(projectId);
 
     const list = new List(
-      this.id,
+      Number(this.id),
       title,
       description,
       day,

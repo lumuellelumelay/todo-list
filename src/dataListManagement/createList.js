@@ -7,6 +7,7 @@ import projectListInstance from '../modules/projectManager.js';
 import listInstance from '../modules/listManager.js';
 import dateHandler from '../modules/dateManager.js';
 import { CreateCard } from '../assets/listCardHandler/createCard.js';
+import listOptionEvents from './listOptionEvent.js';
 
 export class CreateList {
   constructor() {
@@ -151,7 +152,6 @@ export class CreateList {
       return items.dataset.projectId === String(selectedId);
     });
 
-    // Note: testing
     projectCard.querySelector('.items').textContent = `${
       projectListInstance.getProject(selectedId).list.length
     }`;
@@ -215,6 +215,9 @@ export class CreateList {
               project.title
             );
             listCard.render();
+
+            // Note: Testing
+            listOptionEvents.addDeleteEvent();
             return;
           }
         }

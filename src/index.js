@@ -11,7 +11,7 @@ import { CreateProjects } from './dataProjectManagement/createProjects.js';
 import { CreateList } from './dataListManagement/createList.js';
 
 // this is for the project overlay (dialog)
-import { changeDialogState } from './assets/controls/projectOverlayController.js';
+import { changeDialogState } from './assets/controls/changeDialogState.js';
 
 // for sidebar toggle button
 import { toggleMenu } from './assets/controls/toggleController.js';
